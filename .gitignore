@@ -1,5 +1,10 @@
 nbproject/
-/node_modules
 /vendor/
 Homestead.yaml
 .env
+node_modules/
+/vendor/
+/public/build/*
+/public/js/*
+/public/css/*
+bower_components/
