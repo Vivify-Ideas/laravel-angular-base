@@ -15,6 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::resource('files', 'FilesController');
-
+Route::get('angular-test', 'DashboardController@testAngular');

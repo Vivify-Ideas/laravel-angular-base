@@ -1,45 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html  data-ng-app="LaravelAngularApp">
     <head>
-        <title>Laravel</title>
+        <title>Laravel 5 + AngularJS</title>
 
-        <link href="//fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-
-        <style>
-            html, body {
-                height: 100%;
-            }
-
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
-
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-            }
-        </style>
+        <link rel="stylesheet" href="{{ elixir('css/app.css') }}" type='text/css'>
     </head>
     <body>
         <div class="container">
             <div class="content">
                 <div class="title">Laravel 5</div>
             </div>
+            <div class="content"> 
+                <div class="title">+</div>
+            </div>
+             <div ui-view class="content"> 
+
+            </div>
         </div>
+
+
+        <script src="{{ elixir('js/vendors.js') }}"></script>
+        <script src="{{ elixir('js/templates.js') }}"></script>
+        <script src="{{ elixir('js/app.js') }}"></script>
     </body>
 </html>
