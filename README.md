@@ -1,2 +1,2 @@
 # laravel-angular-base
-This project can be used as starting point for developing Laravel + AngularJS applications.
+This project can be used as a starting point when developing Laravel + AngularJS applications.
