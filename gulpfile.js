@@ -1,17 +1,6 @@
 var elixir = require('laravel-elixir');
 require('laravel-elixir-ngtemplatecache');
 
-/*
- |--------------------------------------------------------------------------
- | Elixir Asset Management
- |--------------------------------------------------------------------------
- |
- | Elixir provides a clean, fluent API for defining some basic Gulp tasks
- | for your Laravel application. By default, we are compiling the Less
- | file for our application, as well as publishing vendor resources.
- |
- */
-
 var vendorScripts = [
   'bower_components/jquery/dist/jquery.js',
   'bower_components/lodash/lodash.js',
@@ -24,6 +13,17 @@ var appScripts = [
   'app/routes.js',
   'app/**/*.js'
 ];
+
+/*
+ |--------------------------------------------------------------------------
+ | Elixir Asset Management
+ |--------------------------------------------------------------------------
+ |
+ | Elixir provides a clean, fluent API for defining some basic Gulp tasks
+ | for your Laravel application. By default, we are compiling the Less
+ | file for our application, as well as publishing vendor resources.
+ |
+ */
 
 elixir(function(mix) {
     mix.less('app.less');

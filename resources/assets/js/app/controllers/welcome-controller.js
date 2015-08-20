@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('LaravelAngularApp')
-  .controller('WelcomeCtrl', ['$scope', 'angularString', function($scope, angularString) {
+  .controller('WelcomeCtrl', function($scope, angularString) {
     $scope.angularString = angularString;
   }
-]);
+);
