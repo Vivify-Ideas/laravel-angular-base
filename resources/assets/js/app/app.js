@@ -1,9 +1,11 @@
 'use strict';
 
-window.LaravelAngularApp = angular.module('LaravelAngularApp',[ 
+window._app = angular.module('LaravelAngularApp',[ 
   'ui.router', 
   'ui.bootstrap',
-  'templates'
+  'templates',
+  'ngSanitize',
+  'dialogs.main'
 ])
 
   .config(function ($provide) {

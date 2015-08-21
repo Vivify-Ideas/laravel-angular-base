@@ -1,6 +1,6 @@
 'use strict';
 
-LaravelAngularApp.factory('DashboardService', function($http, $q) {
+_app.factory('DashboardService', function($http, $q) {
 
     var DashboardService = {
       getAngularString: function () {

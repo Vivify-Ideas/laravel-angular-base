@@ -1,5 +1,5 @@
 'use strict';
 
-LaravelAngularApp.factory('activeUser', function(UserModel, $window) {
-    return new UserModel($window._mb_data.activeUser);
+_app.factory('activeUser', function(UserModel, $window) {
+    return new UserModel($window._app_data.activeUser);
   });

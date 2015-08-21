@@ -20,6 +20,8 @@
     "angular-bootstrap": "~0.13.3",
     "lodash": "~3.10.1",
     "angular-ui-router": "~0.2.15",
-    "ng-nested-resource": "*"
+    "ng-nested-resource": "*",
+    "angular-dialog-service": "~5.2.8",
+    "angular-sanitize": "~1.4.4"
   }
 }

@@ -7,7 +7,9 @@ var vendorScripts = [
   'bower_components/angular/angular.js',
   'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
   'bower_components/angular-ui-router/release/angular-ui-router.js',
-  'bower_components/ng-nested-resource/dist/ng-nested-resource.js'
+  'bower_components/ng-nested-resource/dist/ng-nested-resource.js',
+  'bower_components/angular-sanitize/angular-sanitize.js',
+  'bower_components/angular-dialog-service/dist/dialogs.js'
 ];
 
 var appScripts = [
@@ -32,7 +34,8 @@ elixir(function(mix) {
 });
 
 elixir(function(mix) {
-   
+   mix.copy( 'resources/assets/js/bower_components/bootstrap/fonts', 'public/build/fonts' );
+
    mix.scripts(vendorScripts, 'public/js/vendors.js');
    mix.scripts(appScripts, 'public/js/app.js')
 

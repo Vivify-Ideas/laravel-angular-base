@@ -1,20 +1,20 @@
-<!DOCTYPE html>
-<html  data-ng-app="LaravelAngularApp">
+<!doctype html>
+<html lang="en"  data-ng-app="LaravelAngularApp">
     <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <title>Laravel 5 + AngularJS</title>
 
         <link rel="stylesheet" href="{{ elixir('css/app.css') }}" type='text/css'>
     </head>
     <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Laravel 5</div>
-            </div>
-            <div class="content"> 
-                <div class="title">+</div>
-            </div>
-             <div ui-view class="content"> 
-
+        <div class="container" role="main">
+            <div class="content text-center">
+                <div class="text-huge"><h1>Laravel 5<h1></div>
+                <div class="text-huge"><h1>+</h1></div>
+                <div ui-view  class="text-huge"></div>
             </div>
 
             <flash-messages></flash-messages>
@@ -28,9 +28,9 @@
                 logout: '/auth/logout' //*change this hardcoded route after login is implemented. *//
             };
 
-            window._lab_data = {};
+            window._app_data = {};
 
-            _lab_data.activeUser = {!! $user ? $user : 'null' !!};
+            _app_data.activeUser = {!! $user ? $user : 'null' !!};
         </script>
 
         <script src="{{ elixir('js/vendors.js') }}"></script>

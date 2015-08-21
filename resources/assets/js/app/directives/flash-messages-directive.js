@@ -1,6 +1,6 @@
 'use strict';
 
-LaravelAngularApp.factory('FlashMessagesService', function($rootScope, $timeout) {
+_app.factory('FlashMessagesService', function($rootScope, $timeout) {
     $rootScope.flashMessages = [];
     var hideAfter = 5000;
 
