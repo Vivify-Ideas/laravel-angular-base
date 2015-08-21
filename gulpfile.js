@@ -34,8 +34,6 @@ elixir(function(mix) {
 });
 
 elixir(function(mix) {
-   mix.copy( 'resources/assets/js/bower_components/bootstrap/fonts', 'public/build/fonts' );
-
    mix.scripts(vendorScripts, 'public/js/vendors.js');
    mix.scripts(appScripts, 'public/js/app.js')
 

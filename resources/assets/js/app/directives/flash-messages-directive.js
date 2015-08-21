@@ -39,7 +39,11 @@ _app.factory('FlashMessagesService', function($rootScope, $timeout) {
       },
       warning: function (message, closable, autohide) {
         this.show('warning', message, closable, autohide);
+      },
+      info: function (message, closable, autohide) {
+        this.show('info', message, closable, autohide);
       }
+
     };
   })
   .directive('flashMessages', function(FlashMessagesService) {

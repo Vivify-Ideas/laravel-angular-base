@@ -14,6 +14,10 @@ _app.controller('WelcomeCtrl', function($scope, angularString, FlashMessagesServ
     }, 2000);
 
     $timeout(function () {
+      FlashMessagesService.info('Me too!');
+    }, 2500);
+
+    $timeout(function () {
       FlashMessagesService.warning('Ooooh Yeaaah!');
     }, 5000);
       //end Flash messages
