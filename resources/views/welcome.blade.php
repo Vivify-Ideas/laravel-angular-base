@@ -22,7 +22,8 @@
             window._routes = {
                 home: '/',
                 users: '/users/:id',
-                files: '/files/:id'
+                files: '/files/:id',
+                logout: '/auth/logout' //*change this hardcoded route after login is implemented. *//
             };
 
             window._lab_data = {};
