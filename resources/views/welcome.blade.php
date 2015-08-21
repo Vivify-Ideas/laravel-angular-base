@@ -16,6 +16,8 @@
              <div ui-view class="content"> 
 
             </div>
+
+            <flash-messages></flash-messages>
         </div>
 
         <script type="text/javascript">

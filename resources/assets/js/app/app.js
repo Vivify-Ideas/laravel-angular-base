@@ -1,6 +1,10 @@
 'use strict';
 
-window.LaravelAngularApp = angular.module('LaravelAngularApp',[ 'ui.router', 'templates'])
+window.LaravelAngularApp = angular.module('LaravelAngularApp',[ 
+  'ui.router', 
+  'ui.bootstrap',
+  'templates'
+])
 
   .config(function ($provide) {
     $provide.constant('routes', angular.copy(window._routes));

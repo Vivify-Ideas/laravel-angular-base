@@ -17,6 +17,7 @@
   "dependencies": {
     "bootstrap": "~3.3.5",
     "angular": "~1.4.1",
+    "angular-bootstrap": "~0.13.3",
     "lodash": "~3.10.1",
     "angular-ui-router": "~0.2.15",
     "ng-nested-resource": "*"
