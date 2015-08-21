@@ -40,10 +40,13 @@ class FilesController extends Controller
             App::abort(403);
         }
 
+        $path = $request->has('orig') ? $file->getFullPathOriginal() : $file->getFullPath();
+
         header('Content-Type: '.$file->mimetype);
         header('Content-Disposition: inline; filename="'.$file->name.'"');
-
-        $path = $request->has('orig') ? $file->getFullPathOriginal() : $file->getFullPath();
+        header('Content-Transfer-Encoding: binary');
+        header('Content-Length: '. filesize($path));
+        header('Cache-Control: no-cache');
 
         readfile($path);
     }
@@ -83,32 +86,6 @@ class FilesController extends Controller
 
         $file->delete();
         return response('');
-    }
-    
-    public function showUserLogo($id)
-    {
-        $user = User::find($id);
-
-        if (!$user) {
-            abort(404);
-        }
-
-        $logo = $user->logo;
-
-        if($logo) {
-            $path = $logo->getFullPath();
-            $mimetype = $logo->mimetype;
-            $filename = $logo->name;
-        } else {
-            $mimetype = 'image/jpeg';
-            $filename = 'logo.jpg';
-            $path = sprintf('%s/images/logo-default.jpg', public_path());
-        }
-
-        header('Content-Type: '.$mimetype);
-        header('Content-Disposition: inline; filename="'.$filename.'"');
-
-        readfile($path);
     }
 
 }
