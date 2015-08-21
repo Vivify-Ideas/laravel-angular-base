@@ -1,7 +1,6 @@
 'use strict';
 
-angular.module('LaravelAngularApp')
-  .factory('DashboardService', function($http, $q) {
+LaravelAngularApp.factory('DashboardService', function($http, $q) {
 
     var DashboardService = {
       getAngularString: function () {
@@ -11,7 +10,7 @@ angular.module('LaravelAngularApp')
                       }, function(error, status, headers, config){
                         return error.data;
                       });
-        },
+        }
     };
 
     return DashboardService;

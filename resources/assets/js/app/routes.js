@@ -1,7 +1,7 @@
 'use strict';
 
 
-angular.module('LaravelAngularApp').config(function($stateProvider, $urlRouterProvider) {
+LaravelAngularApp.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
 
   $stateProvider

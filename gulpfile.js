@@ -5,7 +5,8 @@ var vendorScripts = [
   'bower_components/jquery/dist/jquery.js',
   'bower_components/lodash/lodash.js',
   'bower_components/angular/angular.js',
-  'bower_components/angular-ui-router/release/angular-ui-router.js'
+  'bower_components/angular-ui-router/release/angular-ui-router.js',
+  'bower_components/ng-nested-resource/dist/ng-nested-resource.js'
 ];
 
 var appScripts = [

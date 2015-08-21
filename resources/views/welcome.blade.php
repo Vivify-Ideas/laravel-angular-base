@@ -18,6 +18,17 @@
             </div>
         </div>
 
+        <script type="text/javascript">
+            window._routes = {
+                home: '/',
+                users: '/users/:id',
+                files: '/files/:id'
+            };
+
+            window._lab_data = {};
+
+            _lab_data.activeUser = {!! $user !!};
+        </script>
 
         <script src="{{ elixir('js/vendors.js') }}"></script>
         <script src="{{ elixir('js/templates.js') }}"></script>
