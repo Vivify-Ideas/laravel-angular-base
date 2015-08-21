@@ -28,7 +28,7 @@
 
             window._lab_data = {};
 
-            _lab_data.activeUser = {!! $user !!};
+            _lab_data.activeUser = {!! $user ? $user : 'null' !!};
         </script>
 
         <script src="{{ elixir('js/vendors.js') }}"></script>

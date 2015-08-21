@@ -17,8 +17,7 @@ class AppServiceProvider extends ServiceProvider
     {
 
         view()->composer('*', function ($view) {
-            $user = Auth::check() ? Auth::user() : '{}';
-            view()->share('user', $user);
+            view()->share('user', Auth::user());
         });
 
     }
