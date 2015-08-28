@@ -11,16 +11,15 @@
     </head>
     <body>
         <div ng-include="'layout/header.html'"></div>
+
         <div class="container" role="main">
             <div class="content text-center">
-                <div class="text-huge"><h1>Laravel 5<h1></div>
-                <div class="text-huge"><h1>+</h1></div>
-                <div ui-view class="text-huge">Angular</div>
+                <div ui-view></div>
             </div>
-
-            <flash-messages></flash-messages>
         </div>
+
         <div ng-include="'layout/footer.html'"></div>
+
         <script type="text/javascript">
             window._routes = {
                 home: '/',
