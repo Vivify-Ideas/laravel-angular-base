@@ -15,7 +15,7 @@
             <div class="content text-center">
                 <div class="text-huge"><h1>Laravel 5<h1></div>
                 <div class="text-huge"><h1>+</h1></div>
-                <div ui-view  class="text-huge"></div>
+                <div ui-view class="text-huge">Angular</div>
             </div>
 
             <flash-messages></flash-messages>

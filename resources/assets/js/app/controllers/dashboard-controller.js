@@ -1,6 +1,4 @@
-_app.controller('WelcomeCtrl', function($scope, angularString, FlashMessagesService, $timeout, dialogs, $rootScope) {
-    $scope.angularString = angularString;
-
+_app.controller('DashboardCtrl', function($scope, FlashMessagesService, $timeout, dialogs, $rootScope) {
 
     //Flash messages
     $timeout(function () {

@@ -9,9 +9,4 @@ use App\Jobs\AmazonSync;
 class DashboardController extends Controller
 {
 
-    public function testAngular()
-    {
-        return \Response::json('Angular');
-    }
-
 }

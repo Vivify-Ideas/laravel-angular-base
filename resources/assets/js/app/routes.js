@@ -2,16 +2,10 @@ _app.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
 
   $stateProvider
-    .state('welcome', {
+    .state('dashboard', {
       url: '/',
-      controller: 'WelcomeCtrl',
-      templateUrl: 'welcome.html',
-      resolve: {
-        angularString: function(DashboardService){
-          return DashboardService.getAngularString();
-        }
-      }
-
+      controller: 'DashboardCtrl',
+      templateUrl: 'dashboard.html'
     });
 
 });
