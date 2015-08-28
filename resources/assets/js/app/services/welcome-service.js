@@ -1,5 +1,3 @@
-'use strict';
-
 _app.factory('DashboardService', function($http, $q) {
 
     var DashboardService = {

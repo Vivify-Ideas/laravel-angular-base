@@ -1,5 +1,3 @@
-'use strict';
-
 _app.factory('FlashMessagesService', function($rootScope, $timeout) {
     $rootScope.flashMessages = [];
     var hideAfter = 5000;

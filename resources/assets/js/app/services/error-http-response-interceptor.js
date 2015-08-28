@@ -1,5 +1,3 @@
-'use strict';
-
 _app.factory('ErrorHttpResponseInterceptor', function($q, $window, routes) {
   return {
     responseError: function(rejection) {

@@ -1,4 +1,4 @@
-<div id="flash-messages" ng-show="flashMessages.length" style="position: absolute; z-index: 9999; top: 12px; right: 12px; min-width: 200px;">
+<div id="flash-messages" ng-show="flashMessages.length">
     <alert ng-repeat="message in flashMessages"
            ng-if="message.closable === false"
            type="{{message.type}}">

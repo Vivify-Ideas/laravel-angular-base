@@ -1,0 +1,47 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: @footer-height;
+    padding-top: @navbar-height + 20px;
+}
+
+#flash-messages {
+    position: absolute; 
+    z-index: 9999; 
+    bottom: @footer-height; 
+    right: 12px; 
+    min-width: 200px;
+    .alert {
+        margin-bottom: 8px;
+    }
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    min-height: @footer-height;
+
+    > div {
+        max-width: 1170px;
+        margin: 0px auto;
+        .container-fluid {
+            .row {
+                padding-top: 1.4em;
+                > div {
+                    &:nth-child(2) {
+                        text-align: right;
+                    }
+                    @media (max-width: @screen-sm) {
+                        text-align: center !important;
+                    }
+                }
+            }
+        }
+    }
+
+}
+

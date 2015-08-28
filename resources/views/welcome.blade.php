@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="{{ elixir('css/app.css') }}" type='text/css'>
     </head>
     <body>
+        <div ng-include="'layout/header.html'"></div>
         <div class="container" role="main">
             <div class="content text-center">
                 <div class="text-huge"><h1>Laravel 5<h1></div>
@@ -19,7 +20,7 @@
 
             <flash-messages></flash-messages>
         </div>
-
+        <div ng-include="'layout/footer.html'"></div>
         <script type="text/javascript">
             window._routes = {
                 home: '/',
