@@ -9,7 +9,11 @@ var vendorScripts = [
   'bower_components/angular-ui-router/release/angular-ui-router.js',
   'bower_components/ng-nested-resource/dist/ng-nested-resource.js',
   'bower_components/angular-sanitize/angular-sanitize.js',
-  'bower_components/angular-dialog-service/dist/dialogs.js'
+  'bower_components/angular-dialog-service/dist/dialogs.js',
+  'bower_components/ladda/js/spin.js',
+  'bower_components/ladda/js/ladda.js',
+  'bower_components/angular-ladda/dist/angular-ladda.min.js',
+  'bower_components/angular-spinkit/build/angular-spinkit.js'
 ];
 
 var appScripts = [
