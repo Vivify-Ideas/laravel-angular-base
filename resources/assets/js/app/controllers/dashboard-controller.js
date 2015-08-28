@@ -1,5 +1,14 @@
 _app.controller('DashboardCtrl', function($scope, FlashMessagesService, $timeout, dialogs, $rootScope) {
 
+    $scope.isSpinning = false;
+    $scope.showSpinner = function() {
+      // stop loading
+      $scope.isSpinning = true;
+      $timeout(function(){
+        $scope.isSpinning = false;
+      }, 3000);
+    };
+
     //Flash messages
     $timeout(function () {
       FlashMessagesService.success('Hello there !!');

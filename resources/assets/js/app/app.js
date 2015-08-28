@@ -5,7 +5,9 @@ window._app = angular.module('LaravelAngularApp',[
     'ui.bootstrap',
     'templates',
     'ngSanitize',
-    'dialogs.main'
+    'dialogs.main',
+    'angular-ladda',
+    'angular-spinkit'
   ])
   .config(function ($provide) {
     $provide.constant('routes', angular.copy(window._routes));

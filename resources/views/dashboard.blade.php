@@ -12,10 +12,8 @@
     <body>
         <div ng-include="'layout/header.html'"></div>
 
-        <div class="container" role="main">
-            <div class="content text-center">
-                <div ui-view></div>
-            </div>
+        <div class="container" role="main" ui-view ng-show="!pageBusy">
+            <flash-messages></flash-messages>
         </div>
 
         <div ng-include="'layout/footer.html'"></div>
