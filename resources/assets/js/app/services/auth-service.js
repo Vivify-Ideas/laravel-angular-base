@@ -1,4 +1,4 @@
-_app.factory('AuthService', function(activeUser, csrfToken, routes, $http, $window) {
+_app.factory('AuthService', function(activeUser, routes, $http, $window) {
 
   var AuthService = {
     isAuthenticated: function() {

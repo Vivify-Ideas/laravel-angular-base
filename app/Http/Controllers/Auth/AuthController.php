@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
 use Auth;
+use Illuminate\Cache\RateLimiter;
 
 class AuthController extends Controller
 {
@@ -113,6 +114,15 @@ class AuthController extends Controller
         }
 
         return Auth::user();
+    }
+
+    protected function sendLockoutResponse(Request $request)
+    {
+        $seconds = app(RateLimiter::class)->availableIn(
+            $request->input($this->loginUsername()).$request->ip()
+        );
+
+        return response([$this->loginUsername() => [$this->getLockoutErrorMessage($seconds)]], 422);
     }
 
 }
