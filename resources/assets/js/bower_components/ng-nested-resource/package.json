@@ -1,0 +1,27 @@
+{
+  "name": "ng-nested-resource",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Vivify-Ideas/ngNestedResource.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vivify-Ideas/ngNestedResource/issues"
+  },
+  "homepage": "https://github.com/Vivify-Ideas/ngNestedResource",
+  "dependencies": {
+    "gulp": "~3.9.0",
+    "gulp-concat": "~2.5.2",
+    "gulp-uglify": "~1.2.0"
+  },
+  "devDependencies": {
+    "gulp-ng-annotate": "^1.0.0"
+  }
+}

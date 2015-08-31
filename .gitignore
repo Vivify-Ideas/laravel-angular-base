@@ -7,4 +7,4 @@ node_modules/
 /public/build/*
 /public/js/*
 /public/css/*
-bower_components/
+.idea

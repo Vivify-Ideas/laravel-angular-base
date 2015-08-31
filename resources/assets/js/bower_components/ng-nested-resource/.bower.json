@@ -1,0 +1,29 @@
+{
+  "name": "ng-nested-resource",
+  "homepage": "https://github.com/Vivify-Ideas/ngNestedResource",
+  "authors": [
+    "Goran Prijic <goran@vivifyideas.com>"
+  ],
+  "description": "Wrap around ngResource to allow nested models.",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.0",
+    "angular-resource": "~1.4.0"
+  },
+  "_release": "f8510c5a6b",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "f8510c5a6b802f3d1882b3a2dfd40ec4e0625fb4"
+  },
+  "_source": "git://github.com/Vivify-Ideas/ngNestedResource.git",
+  "_target": "*",
+  "_originalSource": "ng-nested-resource"
+}
