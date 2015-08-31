@@ -5,6 +5,8 @@ namespace App\Exceptions;
 use Exception;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Mail;
+use View;
 
 class Handler extends ExceptionHandler
 {
@@ -27,6 +29,18 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $e)
     {
+        $code = $this->_getStatusCode($e);
+        $errorLogEmails = config('app.error-log-emails');
+
+        // email me about 500 errors on production and staging
+        if (!config('app.debug') && $code == 500 && !empty($errorLogEmails)) {
+            Mail::send('errors.email', array('exception' => $e), function($message) use ($code, $e, $errorLogEmails)
+            {
+                $message->to($errorLogEmails)
+                    ->subject("$code Error - " . ucfirst(app()->environment()));
+            });
+        }
+
         return parent::report($e);
     }
 
@@ -39,6 +53,19 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
+        $code = $this->_getStatusCode($e);
+
+        if (View::exists('errors.'.$code)) {
+            return response()->view('errors.'.$code, [], $code);
+        }
+
         return parent::render($request, $e);
+    }
+
+    protected function _getStatusCode($e)
+    {
+        return $e instanceof HttpException
+            ? $e->getStatusCode()
+            : 500;
     }
 }

@@ -29,3 +29,4 @@ This project can be used as a starting point when developing Laravel 5 + Angular
 - Run migrations: ```php artisan migrate```
 - Run seeder: ```php artisan db:seed --env=local```
 - Run NPM: ```npm install```
+- Set appropriate email in ```app.error-log-emails``` for email error reporting
