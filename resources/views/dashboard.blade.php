@@ -27,11 +27,13 @@
                 users: '/users/:id',
                 files: '/files/:id',
                 logout: '{{ action("Auth\AuthController@getLogout") }}',
-                signup: '{{ action("Auth\AuthController@postRegister") }}'
+                signup: '{{ action("Auth\AuthController@postRegister") }}',
+                login: '{{ action("Auth\AuthController@postLogin") }}'
             };
 
             window._app_data = {};
 
+            _app_data.csrfToken = '{!! csrf_token() !!}';
             _app_data.activeUser = {!! $user ? $user : 'null' !!};
         </script>
 

@@ -20,6 +20,11 @@ _app.config(function($stateProvider, $urlRouterProvider) {
       controller: 'SignupCtrl',
       templateUrl: 'auth/signup.html'
     })
+    .state('login', {
+      url: '/login',
+      controller: 'LoginCtrl',
+      templateUrl: 'auth/login.html'
+    })
 
   ;
 

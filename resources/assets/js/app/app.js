@@ -16,6 +16,7 @@ window._app = angular.module('LaravelAngularApp',[
   .config(['$httpProvider', function ($httpProvider) {
     $httpProvider.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
     $httpProvider.interceptors.push('ErrorHttpResponseInterceptor');
+    $httpProvider.defaults.headers.common["X-CSRF-TOKEN"] = window._app_data.csrfToken;
   }])
   .run(function($rootScope){
     $rootScope.pageBusy = true;

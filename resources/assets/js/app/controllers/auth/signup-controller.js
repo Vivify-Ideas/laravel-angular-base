@@ -5,7 +5,7 @@ _app.controller('SignupCtrl', function ($scope, AuthService) {
 
   var signupError = function(errors) {
     $scope.errors = errors;
-  }
+  };
 
   $scope.signUp = function() {
    AuthService.signUp($scope.credentials, signupError);
