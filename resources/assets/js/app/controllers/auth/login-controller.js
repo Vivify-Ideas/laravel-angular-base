@@ -8,7 +8,7 @@ _app.controller('LoginCtrl', function ($scope, AuthService) {
   };
 
   $scope.login = function() {
-   AuthService.login($scope.credentials, loginError);
+    AuthService.login($scope.credentials, loginError);
   };
 
-  });
+});

@@ -29,7 +29,9 @@
                 error_log: '{{ action("ErrorLogController@log") }}',
                 logout: '{{ action("Auth\AuthController@getLogout") }}',
                 signup: '{{ action("Auth\AuthController@postRegister") }}',
-                login: '{{ action("Auth\AuthController@postLogin") }}'
+                login: '{{ action("Auth\AuthController@postLogin") }}',
+                password: '{{ action("Auth\PasswordController@postEmail") }}',
+                resetPassword: '{{ action("Auth\PasswordController@postReset") }}'
             };
 
             window._app_data = {};

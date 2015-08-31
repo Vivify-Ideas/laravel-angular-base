@@ -1,4 +1,4 @@
-_app.factory('AuthService', function(activeUser, routes, $http, $window) {
+_app.factory('AuthService', function(activeUser, routes, $http, $window, FlashMessagesService) {
 
   var AuthService = {
     isAuthenticated: function() {
@@ -27,9 +27,27 @@ _app.factory('AuthService', function(activeUser, routes, $http, $window) {
       }, function(response) {
         errorCallback(response.data);
       });
+    },
+    sendPasswordResetLink: function(credentials, errorCallback) {
+      $http.post(routes.password, credentials)
+      .then(function (response) {
+        FlashMessagesService.success(response.data.status);
+      }, function(response) {
+        errorCallback(response.data);
+      });
+    },
+    resetPassword: function(credentials, errorCallback) {
+      $http.post(routes.resetPassword, credentials)
+      .then(function (response) {
+        activeUser = response.activeUser;
+        $window.location.href = routes.home;
+      }, function(response) {
+        errorCallback(response.data);
+      });
     }
 
+
   };
-  
+
   return AuthService;
 });

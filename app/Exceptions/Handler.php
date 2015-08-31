@@ -55,7 +55,7 @@ class Handler extends ExceptionHandler
     {
         $code = $this->_getStatusCode($e);
 
-        if (View::exists('errors.'.$code)) {
+        if (!config('app.debug') && $code == 500) {
             return response()->view('errors.'.$code, [], $code);
         }
 

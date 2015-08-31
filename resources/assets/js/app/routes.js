@@ -25,6 +25,21 @@ _app.config(function($stateProvider, $urlRouterProvider) {
       controller: 'LoginCtrl',
       templateUrl: 'auth/login.html'
     })
+    .state('password', {
+      url: '/password',
+      controller: 'PasswordCtrl',
+      templateUrl: 'auth/password.html'
+    })
+    .state('reset-password', {
+      url: '/reset-password/{token}',
+      controller: 'ResetPasswordCtrl',
+      templateUrl: 'auth/reset-password.html',
+      resolve: {
+        token: function ($stateParams) {
+          return $stateParams.token;
+        }
+      }
+    })
 
   ;
 
