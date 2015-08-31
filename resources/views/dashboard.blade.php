@@ -13,7 +13,7 @@
         <div ng-include="'layout/header.html'"></div>
 
 
-        <div class="container" role="main" ui-view ng-show="!pageBusy">
+        <div class="container" role="main" ng-show="!pageBusy">
             <div class="content">
                 <div ui-view></div>
             </div>
