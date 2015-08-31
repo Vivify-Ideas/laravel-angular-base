@@ -1,11 +1,21 @@
 <form class="form-horizontal">
 
-    <div class="form-group" ng-class="{ 'has-error' : errors.name }">
-        <label class="col-sm-2">Name</label>
+    <div class="form-group" ng-class="{ 'has-error' : errors.first_name }">
+        <label class="col-sm-2">First Name</label>
         <div class="col-sm-6">
-            <input type="text" class="form-control" ng-model="credentials.name">
-            <div class="text-danger" role="alert" ng-if="errors.name">
-                <span class="message">{{ errors.name[0] }}</span>
+            <input type="text" class="form-control" ng-model="credentials.first_name">
+            <div class="text-danger" role="alert" ng-if="errors.first_name">
+                <span class="message">{{ errors.first_name[0] }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error' : errors.last_name }">
+        <label class="col-sm-2">Last Name</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" ng-model="credentials.last_name">
+            <div class="text-danger" role="alert" ng-if="errors.last_name">
+                <span class="message">{{ errors.last_name[0] }}</span>
             </div>
         </div>
     </div>

@@ -10,7 +10,7 @@
     @if (Auth::guest())
     <dd>Guest user</dd>
     @else
-    <dd>{{ Auth::user()->name . " (" . Auth::user()->id . ")" }}</dd>
+    <dd>{{ Auth::user()->full_name . " (" . Auth::user()->id . ")" }}</dd>
     @endif
     <dt>Exception:</dt>
     <dd>{{ $exception }}</dd>

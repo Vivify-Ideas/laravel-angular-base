@@ -32,7 +32,13 @@ class User extends BaseModel implements AuthenticatableContract, CanResetPasswor
      */
     protected $hidden = ['password', 'remember_token'];
 
+    protected $appends = array('full_name');
+
     protected $transformerClass = 'App\Transformers\UserTransformer';
 
+    public function getFullNameAttribute($value)
+    {
+        return (empty($this->attributes['first_name']) && empty($this->attributes['last_name'])) ? '' : $this->attributes['first_name'] . ' ' . $this->attributes['last_name'];
+    }
 
 }
