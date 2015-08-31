@@ -1,3 +1,5 @@
+process.env.DISABLE_NOTIFIER = true;
+
 var elixir = require('laravel-elixir');
 require('laravel-elixir-ngtemplatecache');
 
@@ -14,7 +16,8 @@ var vendorScripts = [
   'bower_components/ladda/js/spin.js',
   'bower_components/ladda/js/ladda.js',
   'bower_components/angular-ladda/dist/angular-ladda.min.js',
-  'bower_components/angular-spinkit/build/angular-spinkit.js'
+  'bower_components/angular-spinkit/build/angular-spinkit.js',
+  'bower_components/stacktrace/dist/stacktrace.js'
 ];
 
 var appScripts = [

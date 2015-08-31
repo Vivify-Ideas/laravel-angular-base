@@ -26,6 +26,7 @@
                 home: '/',
                 users: '/users/:id',
                 files: '/files/:id',
+                error_log: '{{ action("ErrorLogController@log") }}',
                 logout: '{{ action("Auth\AuthController@getLogout") }}',
                 signup: '{{ action("Auth\AuthController@postRegister") }}',
                 login: '{{ action("Auth\AuthController@postLogin") }}'

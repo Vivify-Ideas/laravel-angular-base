@@ -24,6 +24,7 @@
     "angular-dialog-service": "~5.2.8",
     "angular-sanitize": "~1.4.4",
     "angular-ladda": "~0.2.2",
-    "angular-spinkit": "~0.3.3"
+    "angular-spinkit": "~0.3.3",
+    "stacktrace": "~0.6.4"
   }
 }

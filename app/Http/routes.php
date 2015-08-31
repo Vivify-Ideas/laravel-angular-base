@@ -37,3 +37,4 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Route::resource('files', 'FilesController');
+Route::post('javascript-errors', 'ErrorLogController@log');
