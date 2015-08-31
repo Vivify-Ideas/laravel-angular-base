@@ -1,4 +1,4 @@
-_app.factory('UserModel', function(BaseModel, routes, FileModel) {
+_app.factory('UserModel', function(BaseModel, routes) {
     var UserModel = BaseModel(
       routes.users,
       {

@@ -4,6 +4,7 @@ window._app = angular.module('LaravelAngularApp',[
     'ui.router',
     'ui.bootstrap',
     'templates',
+    'ngNestedResource',
     'ngSanitize',
     'dialogs.main',
     'angular-ladda',

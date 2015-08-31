@@ -12,8 +12,11 @@
     <body>
         <div ng-include="'layout/header.html'"></div>
 
+
         <div class="container" role="main" ui-view ng-show="!pageBusy">
-            <flash-messages></flash-messages>
+            <div class="content">
+                <div ui-view></div>
+            </div>
         </div>
 
         <div ng-include="'layout/footer.html'"></div>
@@ -23,7 +26,8 @@
                 home: '/',
                 users: '/users/:id',
                 files: '/files/:id',
-                logout: '/auth/logout' //*change this hardcoded route after login is implemented. *//
+                logout: '{{ action("Auth\AuthController@getLogout") }}',
+                signup: '{{ action("Auth\AuthController@postRegister") }}'
             };
 
             window._app_data = {};

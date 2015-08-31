@@ -14,6 +14,14 @@ _app.config(function($stateProvider, $urlRouterProvider) {
     .state('terms-of-use', {
       url: '/terms-of-use',
       templateUrl: 'terms-of-use.html'
-    });
+    })
+    .state('signup', {
+      url: '/signup',
+      controller: 'SignupCtrl',
+      templateUrl: 'auth/signup.html'
+    })
+
+  ;
+
 
 });
