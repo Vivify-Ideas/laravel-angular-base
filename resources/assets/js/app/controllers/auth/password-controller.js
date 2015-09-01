@@ -1,7 +1,8 @@
-_app.controller('PasswordCtrl', function ($scope, AuthService, FlashMessagesService) {
+_app.controller('PasswordCtrl', function ($scope, AuthService) {
 
   $scope.credentials = {};
   $scope.errors = {};
+  $scope.emailSent = false;
   $scope.busy = false;
 
   var passwordResetError = function(errors) {
@@ -10,7 +11,7 @@ _app.controller('PasswordCtrl', function ($scope, AuthService, FlashMessagesServ
   };
 
   var passwordResetSuccessCallback = function(data) {
-    FlashMessagesService.success(data.status);
+    $scope.emailSent = data.status;
     $scope.busy = false;
   };
 
