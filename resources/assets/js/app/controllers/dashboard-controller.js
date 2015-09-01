@@ -70,5 +70,12 @@ _app.controller('DashboardCtrl', function($scope, FlashMessagesService, $timeout
       },1000);
     }; // end Dialogs
 
+
+    /// Table example
+    $scope.tableData = [
+      {name: "Dejo", age: 47},
+      {name: "Piksi", age: 55},
+      {name: "Mijat", age: 43}
+    ];
   }
 );
