@@ -36,5 +36,5 @@ This project can be used as a starting point when developing Laravel 5 + Angular
 ## Deploy
 
 - SSH key access is required for deployment using Envoy runner
-- Within `Envoy.blade.php` replace ENTER_SERVER_IP_ADDRESS and ENTER_SITE_PATH strings with proper values for your server
+- Within `Envoy.blade.php` replace ENTER_SERVER_IP_ADDRESS (e.g. 192.168.1.1) and ENTER_SITE_PATH (e.g. /home/www/test-application) strings with proper values for your server. 
 - Run ```envoy run deploy```

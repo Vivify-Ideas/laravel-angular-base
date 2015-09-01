@@ -1,4 +1,4 @@
-@servers(['web' => 'www@ENTER_SERVER_IP_ADDRESS'])
+@servers(['web' => 'ENTER_SERVER_IP_ADDRESS'])
 
 @setup
     $environment = isset($env) ? $env : "stage";
