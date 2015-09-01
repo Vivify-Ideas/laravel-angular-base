@@ -44,7 +44,7 @@ class UsersController extends Controller
     public function changePassword(Request $request, $id) 
     {   
         $this->validate($request, [
-            'new' => 'required|confirmed|min:8'
+            'new' => 'required|confirmed|min:6'
         ],
         [
             'new.required' => 'New Password is required',

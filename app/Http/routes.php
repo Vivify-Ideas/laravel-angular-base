@@ -34,7 +34,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('auth/logout', 'Auth\AuthController@getLogout');
     Route::resource('users', 'UsersController', ['only' => ['update']]);
     Route::put('users/{id}/password', 'UsersController@changePassword');
-    Route::resource('files', 'FilesController');
 });
 
+Route::resource('files', 'FilesController');
 Route::post('javascript-errors', 'ErrorLogController@log');

@@ -44,8 +44,7 @@
                 <div class="form-group" ng-class="{'has-error': errors.new.length}">
                     <div class="col-sm-12">
                         <label class="control-label">New Password </label>
-                        <input type="password" class="form-control input-lg"  ng-model="password.new" placeholder="Enter New Password" popover-placement="right" 
-                               popover="One Lowercase Character,      One Special Character,      One Uppercase Character,      Minimum 8 Characters,      One Number" popover-trigger="focus" popover-append-to-body="true">
+                        <input type="password" class="form-control input-lg"  ng-model="password.new" placeholder="Enter New Password">
                         <alert ng-if="errors.new.length" type="danger" close="errors.new = []">{{ errors.new[0] }}</alert>
                     </div>
                 </div>

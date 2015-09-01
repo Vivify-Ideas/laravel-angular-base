@@ -1,10 +1,15 @@
-_app.controller('MyProfileCtrl', function($scope, user, FlashMessagesService){
+_app.controller('MyProfileCtrl', function($scope, user, MyProfileService){
 
-  $scope.user = user;
-  $scope.errors = '';
-  $scope.updating = false;
-  $scope.updatingBasicInfo = false;
-  $scope.changingPassword = false;
+  var resetLaddaSpinners = function() {
+    $scope.updatingBasicInfo = false;
+    $scope.changingPassword = false;
+  }
+
+  var updateFinished = function(errors){
+    resetLaddaSpinners();
+    $scope.errors = errors;
+    $scope.password = initialPassword;
+  };
 
   var initialPassword = {
     current: "",
@@ -14,52 +19,23 @@ _app.controller('MyProfileCtrl', function($scope, user, FlashMessagesService){
 
   $scope.password = initialPassword;
 
-  $scope.changePassword = function() {
-    $scope.changingPassword = true;
-    $scope.user.password = $scope.password;
-    $scope.user.changePassword(
-      function () {
-        $scope.errors = '';
-        $scope.changingPassword = false;
-        $scope.password = initialPassword;
-        FlashMessagesService.success('Your password has been changed successfully.');
-      },
-      function (response) {
-        $scope.changingPassword = false;
-        $scope.errors = response.data;
-      }
-    );
-  };
+  $scope.user = user;
+  $scope.errors = '';
+
+  resetLaddaSpinners();
 
   $scope.updateBasicInfo = function() {
     $scope.updatingBasicInfo = true;
-    $scope.user.updateBasicInfo(
-      function () {
-        $scope.errors = '';
-        $scope.updatingBasicInfo = false;
-        $scope.password = initialPassword;
-        FlashMessagesService.success('Your Basic Info has been updated.');
-      },
-      function (response) {
-        $scope.updatingBasicInfo = false;
-        $scope.errors = response.data;
-      }
-    );
+
+    MyProfileService.updateBasicInfo($scope.user, updateFinished);
+
   };
 
-  $scope.update = function () {
-    $scope.updating = true;
-    $scope.user.update(
-      function () {
-        $scope.errors = '';
-        FlashMessagesService.success('Profile successfully updated');
-        $scope.updating = false;
-      },
-      function (response) {
-        $scope.updating = false;
-        $scope.errors = response.data;
-      }
-    );
+  $scope.changePassword = function() {
+    $scope.changingPassword = true;
+
+    MyProfileService.changePassword($scope.user, $scope.password, updateFinished);
+
   };
 
 });
