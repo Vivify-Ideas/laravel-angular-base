@@ -4,13 +4,16 @@ _app.controller('ResetPasswordCtrl', function ($scope, AuthService, token) {
     token : token
   };
   $scope.errors = {};
+  $scope.busy = false;
 
-  var resetPasswordError = function(errors) {
+  var resetPasswordErrorCallback = function(errors) {
     $scope.errors = errors;
+    $scope.busy = false;
   };
 
   $scope.resetPassword = function() {
-    AuthService.resetPassword($scope.credentials, resetPasswordError);
+    $scope.busy = true;
+    AuthService.resetPassword($scope.credentials, resetPasswordErrorCallback);
   };
 
 });
