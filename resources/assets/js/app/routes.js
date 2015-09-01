@@ -46,10 +46,7 @@ _app.config(function($stateProvider, $urlRouterProvider) {
     })
     .state('my-profile', {
       url: '/my-profile',
-      filter: 'authenticated'
-    })
-    .state('my-profile', {
-      url: '/my-profile',
+      filter: 'authenticated',
       controller: 'MyProfileCtrl',
       templateUrl: 'my-profile.html',
       resolve: {
