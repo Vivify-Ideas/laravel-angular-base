@@ -9,7 +9,8 @@ window._app = angular.module('LaravelAngularApp',[
     'dialogs.main',
     'angular-ladda',
     'angular-spinkit',
-    'ngFileUpload'
+    'ngFileUpload',
+    'pascalprecht.translate'
   ])
   .config(function ($provide) {
     $provide.constant('routes', angular.copy(window._routes));
@@ -18,6 +19,14 @@ window._app = angular.module('LaravelAngularApp',[
     $httpProvider.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
     $httpProvider.interceptors.push('ErrorHttpResponseInterceptor');
     $httpProvider.defaults.headers.common["X-CSRF-TOKEN"] = window._app_data.csrfToken;
+  }])
+  .config(['$translateProvider', function($translateProvider) {
+    $translateProvider.useStaticFilesLoader({
+      prefix: '/i18n/locale-',
+      suffix: '.json?' + Date.now()
+    });
+    $translateProvider.preferredLanguage('en');
+    $translateProvider.useSanitizeValueStrategy('sanitize');
   }])
   .run(function($rootScope, $state, activeUser){
     $rootScope.pageBusy = true;

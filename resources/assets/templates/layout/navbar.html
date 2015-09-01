@@ -29,7 +29,7 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li ng-if="!activeUser.id"><a ui-sref="signup">Signup</a></li>
+                    <li ng-if="!activeUser.id"><a ui-sref="signup">{{ 'COMMON.SIGNUP' | translate }}</a></li>
                     <li ng-if="!activeUser.id"><a ui-sref="login">Login</a></li>
                     <li ng-if="activeUser.id"><a ui-sref="my-profile">My Profile</a></li>
                     <li ng-if="activeUser.id"><a href="" ng-click="logout()">Logout</a></li>

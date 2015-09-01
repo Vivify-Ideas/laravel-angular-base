@@ -27,6 +27,8 @@
     "angular-spinkit": "~0.3.3",
     "stacktrace": "~0.6.4",
     "ng-file-upload": "~5.0.9",
-    "Jcrop": "~0.9.12"
+    "Jcrop": "~0.9.12",
+    "angular-translate": "~2.7.2",
+    "angular-translate-loader-static-files": "~2.7.2"
   }
 }
