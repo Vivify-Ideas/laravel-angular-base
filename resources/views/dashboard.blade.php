@@ -38,6 +38,7 @@
 
             _app_data.csrfToken = '{!! csrf_token() !!}';
             _app_data.activeUser = {!! $user ? $user : 'null' !!};
+            _app_data.preferredLanguage = {"key" : "en_US", "strings" : <?php include(realpath(public_path('i18n/locale-en_US.json'))); ?> };
         </script>
 
         <script src="{{ elixir('js/vendors.js') }}"></script>
