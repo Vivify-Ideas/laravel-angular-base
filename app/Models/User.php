@@ -41,4 +41,14 @@ class User extends BaseModel implements AuthenticatableContract, CanResetPasswor
         return (empty($this->attributes['first_name']) && empty($this->attributes['last_name'])) ? '' : $this->attributes['first_name'] . ' ' . $this->attributes['last_name'];
     }
 
+    public function photo()
+    {
+        return $this->hasOne('App\UploadedFile', 'id', 'photo_id');
+    }
+
+    public function getPhotoUrl()
+    {
+        return $this->photo && $this->photo->url ? $this->photo->url : '/images/profile-default.png';
+    }
+
 }

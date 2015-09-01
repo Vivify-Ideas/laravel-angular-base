@@ -17,7 +17,9 @@ var vendorScripts = [
   'bower_components/ladda/js/ladda.js',
   'bower_components/angular-ladda/dist/angular-ladda.min.js',
   'bower_components/angular-spinkit/build/angular-spinkit.js',
-  'bower_components/stacktrace/dist/stacktrace.js'
+  'bower_components/stacktrace/dist/stacktrace.js',
+  'bower_components/ng-file-upload/ng-file-upload.js',
+  'bower_components/Jcrop/js/jquery.Jcrop.js'
 ];
 
 var appScripts = [

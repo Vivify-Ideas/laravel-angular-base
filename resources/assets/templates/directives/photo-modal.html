@@ -1,0 +1,36 @@
+<div class="modal-header">
+    Edit {{resourceLabel}}
+</div>
+
+<div class="modal-body">
+    <image-cropper
+        ng-if="file.url"
+        model="file"
+        aspect-ratio="{{ ratio }}"
+        previews="previews">
+    ></image-cropper>
+
+    <file-uploader
+        model="file"
+        accept="image/*"
+        text="Click or drop image here to upload a new photo"
+        class="image-uploader"
+    ></file-uploader>
+
+    <p ng-if="warningText">{{warningText}}</p>
+    
+</div>
+
+<div class="modal-footer">
+    <button
+        ng-if="file.isStored()"
+        ng-click="remove()"
+        class="btn btn-danger pull-left"
+        ladda="busyDelete"
+    >
+        Remove current photo
+    </button>
+
+    <button ng-if="file.isStored()" ng-click="save()" class="btn btn-success" ladda="busy">Save</button>
+    <button ng-click="close()" class="btn btn-warning" >Close</button>
+</div>

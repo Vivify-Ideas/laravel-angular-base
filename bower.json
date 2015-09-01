@@ -25,6 +25,8 @@
     "angular-sanitize": "~1.4.4",
     "angular-ladda": "~0.2.2",
     "angular-spinkit": "~0.3.3",
-    "stacktrace": "~0.6.4"
+    "stacktrace": "~0.6.4",
+    "ng-file-upload": "~5.0.9",
+    "Jcrop": "~0.9.12"
   }
 }

@@ -48,8 +48,14 @@ _app.config(function($stateProvider, $urlRouterProvider) {
       url: '/my-profile',
       filter: 'authenticated'
     })
-
-  ;
-
-
+    .state('my-profile', {
+      url: '/my-profile',
+      controller: 'MyProfileCtrl',
+      templateUrl: 'my-profile.html',
+      resolve: {
+        user: function (activeUser) {
+          return activeUser;
+        }
+      }
+    });
 });

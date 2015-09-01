@@ -1,0 +1,17 @@
+<div class="file-uploader">
+
+    <div class="progress v-margin-top-3" ng-if="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ progress }}%;">
+            <span class="sr-only">{{ progress }}% Complete</span>
+        </div>
+    </div>
+
+    <button
+        class="btn btn-default"
+        ngf-select
+        ngf-change="upload($files, $event)"
+        ngf-multiple="{{ isMultiple() }}"
+        accept="{{ accept }}"
+        ngf-accept="validate($file)">{{ isMultiple() ? 'Upload Files' : 'Upload File' }}</button>
+
+</div>

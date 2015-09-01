@@ -1,0 +1,81 @@
+<div>
+
+    <h1>My Account</h1>
+
+    <tabset>
+        <tab heading="Basic Information">
+            <form class="form-horizontal">
+                <div class="form-group col-sm-10">
+                    <div class="col-sm-5" ng-class="{'has-error': errors.first_name.length}">
+                        <label class="control-label">First Name</label>
+                        <input type="text" class="form-control input-lg" placeholder="Enter First Name" ng-model="user.first_name">
+                        <alert ng-if="errors.first_name.length" type="danger" close="errors.first_name = []">{{ errors.first_name[0] }}</alert>
+                    </div>
+                    <div class="col-sm-5" ng-class="{'has-error': errors.last_name.length}">
+                        <label class="control-label">Last Name</label>
+                        <input type="text" class="form-control input-lg" placeholder="Enter Last Name" ng-model="user.last_name">
+                        <alert ng-if="errors.last_name.length" type="danger" close="errors.last_name = []">{{ errors.last_name[0] }}</alert>
+                    </div>
+                </div>
+                <div class="form-group col-sm-10" ng-class="{'has-error': errors.email.length}">
+                    <div class="col-sm-5">
+                        <label class="control-label">Email Address</label>
+                        <input type="text" class="form-control input-lg" placeholder="Enter Email Address" ng-model="user.email">
+                        <alert ng-if="errors.email.length" type="danger" close="errors.email = []">{{ errors.email[0] }}</alert>
+                    </div>
+                </div>
+                <div class="form-group col-sm-10">
+                    <div class="col-sm-12 text-left">
+                        <button type="button" class="btn btn-lg btn-success" ng-click="updateBasicInfo()" ladda="updatingBasicInfo">Update</button>
+                    </div>
+                </div>
+            </form>
+        </tab>
+        <tab heading="Change Password">
+            <div class="row">
+            <form class="form-horizontal col-sm-6">
+                <div class="form-group" ng-class="{'has-error': errors.current.length}">
+                    <div class="col-sm-12">
+                        <label class="control-label">Current Password</label>
+                        <input type="password" class="form-control input-lg" ng-model="password.current" placeholder="Enter Current Password">
+                        <alert ng-if="errors.current.length" type="danger" close="errors.current = []">{{ errors.current[0] }}</alert>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="{'has-error': errors.new.length}">
+                    <div class="col-sm-12">
+                        <label class="control-label">New Password </label>
+                        <input type="password" class="form-control input-lg"  ng-model="password.new" placeholder="Enter New Password" popover-placement="right" 
+                               popover="One Lowercase Character,      One Special Character,      One Uppercase Character,      Minimum 8 Characters,      One Number" popover-trigger="focus" popover-append-to-body="true">
+                        <alert ng-if="errors.new.length" type="danger" close="errors.new = []">{{ errors.new[0] }}</alert>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <label class="control-label">Repeat New Password</label>
+                        <input type="password" class="form-control input-lg" ng-model="password.new_confirmation" placeholder="Repeat New Password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12 text-left">
+                        <button type="submit" class="btn btn-lg btn-success" ng-click="changePassword()" ladda="changingPassword">Update</button>
+                    </div>
+                </div>
+            </form>
+            </div>
+        </tab>
+        <tab heading="Photo">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2>Your Photo</h2>
+                    <img  class="photo" ng-src="{{ user.getPhotoUrl() }}">
+                    <br>
+                    <change-photo model="user" submodel="photo" field="photo_id" ratio="1" resource-label="Your Photo">Change Photo</change-photo>
+                    <span class="help-block">Image should be at least 300px x 300px</span>
+                </div>
+                <div class="col-sm-6">
+                </div>
+            </div>
+        </tab>
+    </tabset>
+
+</div>

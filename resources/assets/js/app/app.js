@@ -8,7 +8,8 @@ window._app = angular.module('LaravelAngularApp',[
     'ngSanitize',
     'dialogs.main',
     'angular-ladda',
-    'angular-spinkit'
+    'angular-spinkit',
+    'ngFileUpload'
   ])
   .config(function ($provide) {
     $provide.constant('routes', angular.copy(window._routes));

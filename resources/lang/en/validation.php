@@ -90,6 +90,9 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'password' => [
+            'password' => 'Password must be at least 8 characters long, must use capital and lower case letters, must include a number or a special character.',
+        ]
     ],
 
     /*

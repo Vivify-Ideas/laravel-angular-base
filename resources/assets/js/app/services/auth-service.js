@@ -26,7 +26,7 @@ _app.factory('AuthService', function(activeUser, routes, $http, $window) {
       .then(function (response) {
         goHome();
       });
-    }, 
+    },
     signUp: function(credentials, errorCallback) {
       $http.post(routes.signup, credentials)
       .then(function (response) {
