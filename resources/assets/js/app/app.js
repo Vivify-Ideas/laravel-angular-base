@@ -29,29 +29,10 @@ window._app = angular.module('LaravelAngularApp',[
     $translateProvider.preferredLanguage(_app_data.preferredLanguage.key);
     $translateProvider.useSanitizeValueStrategy('sanitize');
   }])
-  .run(function($rootScope, $state, activeUser){
+  .run(function($rootScope, $state, activeUser, RouteFilterService){
     $rootScope.pageBusy = true;
-
-    $rootScope.$on('$stateChangeStart', function(event, toState) {
-      $rootScope.pageBusy = true;
-
-      if(toState.filter) {
-        if(toState.filter === 'guest' && activeUser.id) {
-          $rootScope.pageBusy = false;
-          $state.go('dashboard');
-          return event.preventDefault();
-        } else if(toState.filter === 'authenticated' && !activeUser.id){
-          $rootScope.pageBusy = false;
-          $state.go('login');
-          return event.preventDefault();
-        }
-      }
-
-    });
-
     $rootScope.$on('$viewContentLoaded', function(event) {
       $rootScope.pageBusy = false;
     });
-
   });
 ;
