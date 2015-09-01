@@ -18,27 +18,35 @@ _app.config(function($stateProvider, $urlRouterProvider) {
     .state('signup', {
       url: '/signup',
       controller: 'SignupCtrl',
-      templateUrl: 'auth/signup.html'
+      templateUrl: 'auth/signup.html',
+      filter: 'guest'
     })
     .state('login', {
       url: '/login',
       controller: 'LoginCtrl',
-      templateUrl: 'auth/login.html'
+      templateUrl: 'auth/login.html',
+      filter: 'guest'
     })
     .state('password', {
       url: '/password',
       controller: 'PasswordCtrl',
-      templateUrl: 'auth/password.html'
+      templateUrl: 'auth/password.html',
+      filter: 'guest'
     })
     .state('reset-password', {
       url: '/reset-password/{token}',
       controller: 'ResetPasswordCtrl',
       templateUrl: 'auth/reset-password.html',
-      resolve: {
+      filter: 'guest'
+,      resolve: {
         token: function ($stateParams) {
           return $stateParams.token;
         }
       }
+    })
+    .state('my-profile', {
+      url: '/my-profile',
+      filter: 'authenticated'
     })
 
   ;
