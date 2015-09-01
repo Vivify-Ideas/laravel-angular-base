@@ -15,6 +15,7 @@ This project can be used as a starting point when developing Laravel 5 + Angular
 - [Gulp](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md#getting-started) ```npm install --global gulp```
 - [Less](http://lesscss.org/) ```npm install -g less```
 - [Bower](http://bower.io/) - Package manager for JS
+- [Envoy](http://laravel.com/docs/5.0/envoy) ```composer global require "laravel/envoy=~1.0```
 
 ## Installation
 
@@ -30,3 +31,10 @@ This project can be used as a starting point when developing Laravel 5 + Angular
 - Run seeder: ```php artisan db:seed --env=local```
 - Run NPM: ```npm install```
 - Set appropriate email in ```app.error-log-emails``` for email error reporting
+- Set ```~/.composer/vendor/bin``` directory in your PATH so the envoy executable is found when you run the envoy command in your terminal
+
+## Deploy
+
+- SSH key access is required for deployment using Envoy runner
+- Within `Envoy.blade.php` replace ENTER_SERVER_IP_ADDRESS and ENTER_SITE_PATH strings with proper values for your server
+- Run ```envoy run deploy```
