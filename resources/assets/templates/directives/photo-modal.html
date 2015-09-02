@@ -5,7 +5,7 @@
 <div class="modal-body">
     <image-cropper
         ng-if="file.url"
-        model="file"
+        model="uploadedPhoto"
         aspect-ratio="{{ ratio }}"
         previews="previews">
     ></image-cropper>
@@ -15,6 +15,7 @@
         accept="image/*"
         text="Click or drop image here to upload a new photo"
         class="image-uploader"
+        on-upload="getUploadedPhoto"
     ></file-uploader>
 
     <p ng-if="warningText">{{warningText}}</p>

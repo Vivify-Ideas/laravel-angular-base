@@ -15,10 +15,11 @@ window._app = angular.module('LaravelAngularApp',[
   .config(function ($provide) {
     $provide.constant('routes', angular.copy(window._routes));
   })
-  .config(['$httpProvider', function ($httpProvider) {
+  .config(['$httpProvider', 'laddaProvider', function ($httpProvider, laddaProvider) {
     $httpProvider.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
     $httpProvider.interceptors.push('ErrorHttpResponseInterceptor');
     $httpProvider.defaults.headers.common["X-CSRF-TOKEN"] = window._app_data.csrfToken;
+    laddaProvider.setOption({style: 'expand-left'});
   }])
   .config(['$translateProvider', function($translateProvider) {
     $translateProvider.translations(_app_data.preferredLanguage.key, _app_data.preferredLanguage.strings);

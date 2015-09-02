@@ -9,7 +9,7 @@ _app.directive('fileUploader', function(Upload, $timeout, FlashMessagesService) 
       model: '=',
       accept: '@', // watch for file name regex and for input accept attribute!
       text: '@',
-      onUpload: '&?'
+      onUpload: '='
     },
     link: function($scope, element, attrs) {
       $scope.progress = 0;
@@ -52,9 +52,8 @@ _app.directive('fileUploader', function(Upload, $timeout, FlashMessagesService) 
               $scope.progress = parseInt(100.0 * evt.loaded / evt.total);
             }).success(function(data, status, headers, config) {
               $scope.progress = 0;
-              angular.extend($scope.model, data);
               if ($scope.onUpload) {
-                $scope.onUpload();
+                $scope.onUpload(data);
               }
             });
           });

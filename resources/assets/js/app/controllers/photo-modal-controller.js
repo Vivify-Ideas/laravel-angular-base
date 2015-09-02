@@ -7,6 +7,7 @@ _app.controller('PhotoModal', function($scope, $modalInstance, model, submodel,
       $scope.file = model[submodel];
       $scope.ratio = ratio;
       $scope.warningText = warningText;
+      $scope.uploadedPhoto = $scope.file;
 
       var handleResponseCallback = function(isDelete) {
         if(isDelete) {
@@ -29,10 +30,15 @@ _app.controller('PhotoModal', function($scope, $modalInstance, model, submodel,
 
       $scope.save = function () {
         $scope.busy = true;
+        angular.extend($scope.file, $scope.uploadedPhoto);
         PhotoModalService.savePhoto(model, $scope.file, handleResponseCallback);
       };
 
       $scope.close = function () {
         $modalInstance.dismiss('cancel');
       };
+
+      $scope.getUploadedPhoto = function(photo) {
+        $scope.uploadedPhoto = photo;
+      }
 });
