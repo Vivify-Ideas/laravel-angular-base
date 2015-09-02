@@ -1,8 +1,10 @@
 process.env.DISABLE_NOTIFIER = true;
 
 var elixir = require('laravel-elixir');
+
 require('laravel-elixir-ngtemplatecache');
 require('laravel-elixir-ng-annotate');
+require('laravel-elixir-clear');
 
 var vendorScripts = [
   'bower_components/jquery/dist/jquery.js',
@@ -48,7 +50,13 @@ elixir(function(mix) {
 
 elixir(function(mix) {
    mix.scripts(vendorScripts, 'public/js/vendors.js');
-   mix.annotate(appScripts).scripts('annotated.js','public/js/app.js', 'public/js/');
+
+  if(elixir.config.production) {
+    mix.annotate(appScripts).scripts('annotated.js','public/js/app.js', 'public/js/');
+  } else {
+    mix.scripts(appScripts, 'public/js/app.js');
+  }
+
 });
 
 elixir(function(mix) {
@@ -57,4 +65,8 @@ elixir(function(mix) {
 
 elixir(function(mix) {
   mix.version(["css/app.css", "js/vendors.js", "js/templates.js", "js/app.js"]);
+});
+
+elixir(function(mix) {
+  mix.clear(["public/css", "public/js"]);
 });
