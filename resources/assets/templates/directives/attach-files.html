@@ -1,0 +1,39 @@
+<div class="attach-files">
+    <ul ng-if="files.length">
+        <li ng-repeat="file in files">
+            <span class="name">{{ file.name }}</span>
+            <span class="pull-right">
+                <a href="" ng-click="removeFile(file)"><i class="fa fa-times"></i></a>
+                <a target="_blank" ng-href="{{ file.url }}"><i class="fa fa-external-link"></i></a>
+            </span>
+        </li>
+    </ul>
+
+    <div class="progress" ng-if="progress">
+        <div class="progress-bar"
+             role="progressbar"
+             aria-valuenow="{{ progress }}"
+             aria-valuemin="0"
+             aria-valuemax="100"
+             style="width: {{ progress }}%;">
+            <span class="sr-only">{{ progress }}% Complete</span>
+        </div>
+    </div>
+
+    <alert ng-if="error" type="danger">{{ error }}</alert>
+
+    <button
+        class="btn btn-default"
+        ngf-select
+        ngf-change="upload($files, $event)"
+        ngf-multiple="{{ isMultiple() }}"
+        accept="{{ accept }}"
+        ngf-accept="validate($file)"
+        >{{ isMultiple() ? 'Upload Files' : 'Upload File' }}</button>
+
+    <button
+        ng-if="files.length > 1"
+        class="btn btn-default"
+        ng-click="clear()"
+        >Clear</button>
+</div>

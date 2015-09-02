@@ -31,3 +31,30 @@
         </tbody>
     </table>
 </div>
+
+<div class="content" ng-if="isAuthenticated">
+    <div ng-if="!contacts.length">
+        <h2>Import contacts from csv</h2>
+        <div>
+            <attach-files files="importFiles"
+                          type="contact-imports"
+                          multiple=false
+                          accept=".csv"></attach-files>
+        </div>
+        <div class="clearfix"></div>
+        <div style="margin-top: 20px">
+            <button ng-if="importFiles.length" type="button"
+                class="btn btn-warning"
+                ladda="importingContacts"
+                data-style="expand-left"
+                ng-click="importContacts(importFiles)">Import contacts</button>
+        </div>
+    </div>
+
+    <div ng-if="contacts.length">
+        <h2>Imported contacts:</h2>
+        <ul>
+            <li ng-repeat="contact in contacts">{{ contact.email }}</li>
+        </ul>
+    </div>
+</div>

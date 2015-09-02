@@ -31,7 +31,8 @@
                 signup: '{{ action("Auth\AuthController@postRegister") }}',
                 login: '{{ action("Auth\AuthController@postLogin") }}',
                 password: '{{ action("Auth\PasswordController@postEmail") }}',
-                resetPassword: '{{ action("Auth\PasswordController@postReset") }}'
+                resetPassword: '{{ action("Auth\PasswordController@postReset") }}',
+                contacts_parse_from_csv: '{{ action("ContactsController@parseFromCsv") }}'
             };
 
             window._app_data = {};

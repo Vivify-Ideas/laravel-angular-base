@@ -1,5 +1,6 @@
-_app.controller('DashboardCtrl', function($scope, FlashMessagesService, $timeout, dialogs, $rootScope) {
+_app.controller('DashboardCtrl', function($scope, FlashMessagesService, $timeout, dialogs, $rootScope, FilesCollection, ContactsService, AuthService) {
 
+    $scope.isAuthenticated = AuthService.isAuthenticated;
     $scope.isSpinning = false;
     $scope.showSpinner = function() {
       // stop loading
@@ -77,5 +78,26 @@ _app.controller('DashboardCtrl', function($scope, FlashMessagesService, $timeout
       {name: "Piksi", age: 55},
       {name: "Mijat", age: 43}
     ];
+
+    // Import contacts from csv
+    $scope.importFiles = new FilesCollection();
+    $scope.importingContacts = false;
+    $scope.contacts = [];
+
+    $scope.importContacts = function (files) {
+      $scope.importingContacts = true;
+
+      ContactsService.importFromCsv(
+        files[0],
+        function (data) {
+          $scope.importingContacts = false;
+          $scope.contacts = data;
+          $scope.importFiles = new FilesCollection();
+
+          FlashMessagesService.success('File successfully imported');
+        }
+      );
+    };
+
   }
 );
