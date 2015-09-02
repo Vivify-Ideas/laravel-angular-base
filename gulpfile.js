@@ -2,6 +2,7 @@ process.env.DISABLE_NOTIFIER = true;
 
 var elixir = require('laravel-elixir');
 require('laravel-elixir-ngtemplatecache');
+require('laravel-elixir-ng-annotate');
 
 var vendorScripts = [
   'bower_components/jquery/dist/jquery.js',
@@ -47,8 +48,7 @@ elixir(function(mix) {
 
 elixir(function(mix) {
    mix.scripts(vendorScripts, 'public/js/vendors.js');
-   mix.scripts(appScripts, 'public/js/app.js')
-
+   mix.annotate(appScripts).scripts('annotated.js','public/js/app.js', 'public/js/');
 });
 
 elixir(function(mix) {

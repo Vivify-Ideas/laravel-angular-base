@@ -4,8 +4,6 @@ namespace App;
 
 trait StaticModelTrait 
 {
-    protected static $defaultKeyField;
-    protected static $defaultValueField;
     protected static $arrayKeys;
 
     public static function all()
