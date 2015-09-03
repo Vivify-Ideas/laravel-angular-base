@@ -1,6 +1,6 @@
 _app.controller('DashboardCtrl', function($scope, FlashMessagesService, $timeout, dialogs, $rootScope, FilesCollection, ContactsService, AuthService) {
 
-    $scope.isAuthenticated = AuthService.isAuthenticated;
+    $scope.isAuthenticated = AuthService.isAuthenticated();
     $scope.isSpinning = false;
     $scope.showSpinner = function() {
       // stop loading

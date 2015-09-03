@@ -1,4 +1,6 @@
-<a ng-click="sortTable()" ng-transclude></a>
-<span ng-if="isSortedByThisColumn()" class="glyphicon"
+<a ng-click="sortTable()" href="">
+    <span ng-transclude></span>
+    <span ng-if="isSortedByThisColumn()" class="glyphicon"
       ng-class="{'glyphicon-chevron-down': getReverse(), 'glyphicon-chevron-up': !getReverse()}"
       aria-hidden="true"></span>
+</a>
