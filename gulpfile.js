@@ -52,6 +52,7 @@ var adminScripts = [
 
 elixir(function(mix) {
     mix.less('app.less');
+    mix.copy( 'resources/assets/js/bower_components/Jcrop/css/Jcrop.gif', 'public/build/css/Jcrop.gif' );
 });
 
 elixir(function(mix) {

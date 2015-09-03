@@ -17,7 +17,7 @@ _app.directive('fileUploader', function(Upload, $timeout, FlashMessagesService) 
 
       $scope.triggerFileSelect = function () {
         $timeout(function () {
-          element.find('buuton').click();
+          element.find('button').click();
         }, 0);
       };
 
