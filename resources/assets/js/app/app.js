@@ -32,6 +32,7 @@ window._app = angular.module('LaravelAngularApp',[
   }])
   .run(function($rootScope, $state, activeUser, RouteFilterService){
     $rootScope.pageBusy = true;
+    $rootScope.projectName = window._app_data.projectName;
     $rootScope.$on('$viewContentLoaded', function(event) {
       $rootScope.pageBusy = false;
     });

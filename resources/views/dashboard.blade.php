@@ -31,12 +31,13 @@
                 signup: '{{ action("Auth\AuthController@postRegister") }}',
                 login: '{{ action("Auth\AuthController@postLogin") }}',
                 password: '{{ action("Auth\PasswordController@postEmail") }}',
-                resetPassword: '{{ action("Auth\PasswordController@postReset") }}',
+                reset_password: '{{ action("Auth\PasswordController@postReset") }}',
                 contacts_parse_from_csv: '{{ action("ContactsController@parseFromCsv") }}'
             };
 
             window._app_data = {};
 
+            _app_data.projectName = 'Project Name';
             _app_data.csrfToken = '{!! csrf_token() !!}';
             _app_data.activeUser = {!! $user ? $user : 'null' !!};
             _app_data.preferredLanguage = {"key" : "en-US", "strings" : <?php include(realpath(public_path('i18n/locale-en-US.json'))); ?> };

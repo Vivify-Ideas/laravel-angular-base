@@ -45,7 +45,7 @@ _app.factory('AuthService', function(activeUser, routes, $http, $window) {
       });
     },
     resetPassword: function(credentials, errorCallback) {
-      $http.post(routes.resetPassword, credentials)
+      $http.post(routes.reset_password, credentials)
       .then(function (response) {
         setUser(response.data);
         goHome();

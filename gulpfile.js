@@ -33,6 +33,12 @@ var appScripts = [
   'app/**/*.js'
 ];
 
+var adminScripts = [
+  'bower_components/jquery/dist/jquery.js',
+  'bower_components/bootstrap/dist/js/bootstrap.js',
+  'admin/index.js'
+];
+
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -57,6 +63,7 @@ elixir(function(mix) {
     mix.scripts(appScripts, 'public/js/app.js');
   }
 
+   mix.scripts(adminScripts, 'public/js/admin.js');
 });
 
 elixir(function(mix) {
@@ -64,7 +71,7 @@ elixir(function(mix) {
 });
 
 elixir(function(mix) {
-  mix.version(["css/app.css", "js/vendors.js", "js/templates.js", "js/app.js"]);
+  mix.version(["css/app.css", "js/vendors.js", "js/templates.js", "js/app.js", "js/admin.js"]);
 });
 
 elixir(function(mix) {

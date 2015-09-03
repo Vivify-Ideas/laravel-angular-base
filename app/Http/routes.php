@@ -39,3 +39,9 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::resource('files', 'FilesController');
 Route::post('javascript-errors', 'ErrorLogController@log');
+
+Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Admin'], function() {
+
+    Route::get('/', 'DashboardController@index');
+
+});
