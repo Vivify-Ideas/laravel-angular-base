@@ -25,9 +25,11 @@
 
             <div id="bs-example-navbar-collapse-6" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/admin">Users</a></li>
+                    <li><a href="/admin">Dashboard</a></li>
+                    <li><a href="/admin/users">Users</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/">Back to Site</a></li>
                     <li><a href="{{ action('Auth\AuthController@getLogout') }}">Logout</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->

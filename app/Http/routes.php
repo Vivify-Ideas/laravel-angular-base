@@ -43,5 +43,6 @@ Route::post('javascript-errors', 'ErrorLogController@log');
 Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Admin'], function() {
 
     Route::get('/', 'DashboardController@index');
+    Route::resource('/users', 'UsersController');
 
 });

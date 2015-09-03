@@ -74,6 +74,8 @@ elixir(function(mix) {
   mix.version(["css/app.css", "js/vendors.js", "js/templates.js", "js/app.js", "js/admin.js"]);
 });
 
-elixir(function(mix) {
-  mix.clear(["public/css", "public/js"]);
-});
+if(elixir.config.production) {
+  elixir(function(mix) {
+    mix.clear(["public/css", "public/js"]);
+  });
+}
