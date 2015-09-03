@@ -7,11 +7,12 @@ _app.controller('PhotoModal', function($scope, $modalInstance, model, submodel,
       $scope.file = model[submodel];
       $scope.ratio = ratio;
       $scope.warningText = warningText;
-      $scope.uploadedPhoto = $scope.file;
+      $scope.uploadedPhoto = angular.copy($scope.file);
 
       var handleResponseCallback = function(isDelete) {
         if(isDelete) {
           $scope.file = null;
+          $scope.uploadedPhoto = null;
           $scope.busyDelete = false;
         } else {
           $scope.file.url += '?';
@@ -39,6 +40,6 @@ _app.controller('PhotoModal', function($scope, $modalInstance, model, submodel,
       };
 
       $scope.getUploadedPhoto = function(photo) {
-        $scope.uploadedPhoto = photo;
+        angular.extend($scope.uploadedPhoto, photo);
       }
 });

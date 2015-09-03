@@ -4,14 +4,14 @@
 
 <div class="modal-body">
     <image-cropper
-        ng-if="file.url"
+        ng-if="uploadedPhoto.url"
         model="uploadedPhoto"
         aspect-ratio="{{ ratio }}"
         previews="previews">
     ></image-cropper>
 
     <file-uploader
-        model="file"
+        model="uploadedPhoto"
         accept="image/*"
         text="Click or drop image here to upload a new photo"
         class="image-uploader"
@@ -32,6 +32,6 @@
         Remove current photo
     </button>
 
-    <button ng-if="file.isStored()" ng-click="save()" class="btn btn-success" ladda="busy">Save</button>
+    <button ng-if="uploadedPhoto.isStored()" ng-click="save()" class="btn btn-success" ladda="busy">Save</button>
     <button ng-click="close()" class="btn btn-warning" >Close</button>
 </div>
