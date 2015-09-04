@@ -1,5 +1,3 @@
-'use strict';
-
 _app.directive('imageCropper', function($timeout) {
   return {
     restrict: 'E',

@@ -10,13 +10,14 @@
         previews="previews">
     ></image-cropper>
 
-    <file-uploader
+    <attach-files
         model="uploadedPhoto"
         accept="image/*"
-        text="Click or drop image here to upload a new photo"
         class="image-uploader"
         on-upload="getUploadedPhoto"
-    ></file-uploader>
+        multiple=false
+        template="file_uploader"
+    ></attach-files>
 
     <p ng-if="warningText">{{warningText}}</p>
     

@@ -1,14 +1,21 @@
-_app
-  .directive('attachFiles', function(Upload, FileModel) {
+_app.directive('attachFiles', function(Upload, FileModel) {
     return {
       restrict: 'E',
       replace: true,
-      templateUrl: 'directives/attach-files.html',
+      templateUrl: function($elem, $attrs) {
+        var templates = {
+          attach_files : 'directives/attach-files.html',
+          file_uploader : 'directives/file-uploader.html'
+        };
+        return $attrs.template && templates[$attrs.template] ? templates[$attrs.template] : templates['attach_files'];
+      },
       scope: {
         files: '=',
         type: '@',
         multiple: '@?',
-        accept: '@?'
+        accept: '@?',
+        model: '=',
+        onUpload: '='
       },
       link: function($scope, element, attrs) {
         $scope.progress = 0;
@@ -47,7 +54,7 @@ _app
             Upload.upload({
               url: '/files',
               method: 'POST',
-              fields: {type: $scope.type},
+              fields: {type: $scope.type ? $scope.type : $scope.model.type},
               file: file
             }).progress(function(evt) {
                 $scope.progress = parseInt(100.0 * evt.loaded / evt.total);
@@ -59,6 +66,10 @@ _app
                 }
 
                 $scope.files.push(new FileModel(data));
+                if ($scope.onUpload) {
+                  $scope.onUpload(data);
+                }
+
               }).error(function() {
                 $scope.progress = 0;
               });

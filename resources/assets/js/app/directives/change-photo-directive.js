@@ -1,5 +1,3 @@
-'use strict';
-
 _app.directive('changePhoto', function($modal, FileModel) {
     return {
       restrict: 'E',

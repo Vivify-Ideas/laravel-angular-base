@@ -1,5 +1,4 @@
-_app
-  .directive('tableControl', function($filter) {
+_app.directive('tableControl', function($filter) {
     return {
       restrict: 'A',
       scope: {
