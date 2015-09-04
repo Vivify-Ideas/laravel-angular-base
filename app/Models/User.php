@@ -8,6 +8,9 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Laravel\Cashier\Billable;
 use Laravel\Cashier\Contracts\Billable as BillableContract;
+use Cache;
+use Carbon\Carbon;
+use Laravel\Cashier\StripeGateway;
 
 class User extends BaseModel implements AuthenticatableContract, CanResetPasswordContract, BillableContract
 {
@@ -109,7 +112,32 @@ class User extends BaseModel implements AuthenticatableContract, CanResetPasswor
         return $customer;
     }
 
-        protected function getCacheExpiresAt()
+    public function changePlan($plan, $token = null)
+    {
+        $this->subscription($plan['id'])->create($token, [], $this->getStripeCustomer());
+        $this->clearStripeCache();
+        return $this->save();
+    }
+
+    public function cancelPlan()
+    {
+        return $this->changePlan(Plan::free());
+    }
+
+    public function removePlan()
+    {
+        $this->stripe_plan = null;
+        $this->clearStripeCache();
+        return $this->save();
+    }
+
+    public function clearStripeCache()
+    {
+        Cache::forget($this->getCacheKeyStripeInvoices());
+        Cache::forget($this->getCacheKeyStripeCustomer());
+    }
+
+    protected function getCacheExpiresAt()
     {
         return Carbon::now()->addMinutes(30);
     }
@@ -117,6 +145,11 @@ class User extends BaseModel implements AuthenticatableContract, CanResetPasswor
     protected function getCacheKeyStripeCustomer()
     {
         return sprintf('stripe_customer_%s', $this->id);
+    }
+
+    protected function getCacheKeyStripeInvoices()
+    {
+        return sprintf('stripe_invoices_%s', $this->id);
     }
 
 }

@@ -59,7 +59,7 @@ _app.config(function($stateProvider, $urlRouterProvider) {
       url: '/billing',
       filter: 'authenticated',
       controller: 'BillingCtrl',
-      templateUrl: 'billing.html',
+      templateUrl: 'account/billing.html',
       resolve: {
         card: function (CardModel, activeUser) {
           return CardModel.get({id: 0, user_id: activeUser.id});
@@ -68,5 +68,25 @@ _app.config(function($stateProvider, $urlRouterProvider) {
           return (new InvoicesCollection).query({user_id: activeUser.id});
         }
       }
-    });
+    })
+    .state('change-plan', {
+      url: '/change-plan',
+      filter: 'authenticated',
+      templateUrl: 'account/change-plan.html',
+      controller: 'ChangePlanCtrl',
+      resolve: {
+        user: function (activeUser) {
+          return activeUser;
+        },
+        plans: function (PlansCollection) {
+          return (new PlansCollection).query();
+        },
+        card: function (CardModel, activeUser) {
+          return CardModel.get({id: 0, user_id: activeUser.id});
+        }
+      }
+    })
+
+
+  ;
 });

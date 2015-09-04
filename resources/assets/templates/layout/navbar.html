@@ -13,14 +13,13 @@
             <div id="navbar" class="navbar-collapse collapse" collapse="navbarCollapsed">
                 <ul class="nav navbar-nav">
                     <li class="active"><a ui-sref="dashboard">Home</a></li>
-                    <li><a ui-sref="billing">Billing</a></li>
                     <li><a href="">About</a></li>
                     <li><a href="">Contact</a></li>
                     <li dropdown on-toggle="toggled(open)">
-                        <a href dropdown-toggle>Dropdown <span class="caret"></span></a>
+                        <a href dropdown-toggle>Account <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="">Action</a></li>
-                            <li><a href="">Another action</a></li>
+                            <li ng-if="activeUser.id"><a ui-sref="billing">Billing</a></li>
+                            <li ng-if="activeUser.id"><a ui-sref="change-plan">Change Plan</a></li>
                             <li><a href="">Something else here</a></li>
                             <li role="separator" class="divider"></li>
                             <li class="dropdown-header">Nav header</li>

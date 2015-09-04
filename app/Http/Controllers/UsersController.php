@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Exception\HttpResponseException;
 use Illuminate\Support\Facades\Lang;
+use App\Plan;
 
 class UsersController extends Controller
 {
@@ -89,6 +90,40 @@ class UsersController extends Controller
         $this->validate($request, $rules);
 
         return $request->only(array_keys($rules));
+    }
+
+    public function changePlan(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+
+        if ($user->id != Auth::user()->id) {
+            abort(403);
+        }
+
+        $plan = Plan::getByKey($request->get('plan_id'));
+
+        if(!$plan) {
+            App::abort(404);
+        }
+
+        if ($plan['id'] != $user->stripe_plan) {
+            $user->changePlan($plan, $request->get('token'));
+        }
+
+        return $user;
+    }
+
+    public function cancelPlan($id)
+    {
+        $user = User::findOrFail($id);
+
+        if ($user->id != Auth::user()->id) {
+            abort(403);
+        }
+
+        $user->cancelPlan();
+
+        return $user;
     }
 
 }

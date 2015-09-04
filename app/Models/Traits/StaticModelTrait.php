@@ -5,15 +5,16 @@ namespace App;
 trait StaticModelTrait 
 {
     protected static $arrayKeys;
+    protected static $items;
 
     public static function all()
     {
-        return self::$items;
+        return self::getItems();
     }
 
     public static function first()
     {
-        return current(self::$items);
+        return array_values(self::getItems())[0];
     }
 
     public static function getByKey($key)
@@ -61,4 +62,8 @@ trait StaticModelTrait
         return self::getArrayKeys()[1];
     }
 
+    protected static function getItems() 
+    {
+        return self::$items;
+    }
 }

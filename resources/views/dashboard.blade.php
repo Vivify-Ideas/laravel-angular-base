@@ -34,7 +34,8 @@
                 reset_password: '{{ action("Auth\PasswordController@postReset") }}',
                 contacts_parse_from_csv: '{{ action("ContactsController@parseFromCsv") }}',
                 cards: '/users/:user_id/cards/:id',
-                invoices: '/users/:user_id/invoices/:id'
+                invoices: '/users/:user_id/invoices/:id',
+                plans: '/plans/:id'
             };
 
             window._app_data = {};

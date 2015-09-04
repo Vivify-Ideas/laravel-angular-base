@@ -39,6 +39,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('users.cards', 'Billing\UserCardsController');
     Route::resource('users.invoices', 'Billing\UserInvoicesController');
 
+    Route::put('users/{id}/plan', 'UsersController@changePlan');
+    Route::put('users/{id}/plan/cancel', 'UsersController@cancelPlan');
+
 });
 
 Route::resource('files', 'FilesController');
@@ -50,3 +53,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Admi
     Route::resource('/users', 'UsersController');
 
 });
+
+Route::resource('plans', 'PlansController');

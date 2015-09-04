@@ -20,7 +20,12 @@ _app.factory('UserModel', function(BaseModel, routes) {
               action: "basic_info"
             });
           }
-        }
+        },
+        '_changePlan': { method:'PUT', url: routes.users + '/plan'
+        },
+        '_cancelPlan': { method:'PUT', url: routes.users + '/plan/cancel'
+        },
+
       }
     );
 
@@ -34,6 +39,14 @@ _app.factory('UserModel', function(BaseModel, routes) {
 
     UserModel.prototype.getPhotoUrl = function () {
       return this.photo && this.photo.url ? this.photo.url : '/images/profile-default.png';
+    };
+
+    UserModel.prototype.changePlan = function (plan, token, success, error) {
+      return this.$_changePlan({plan_id: plan.id, token: token}, success, error);
+    };
+
+    UserModel.prototype.cancelPlan = function (success, error) {
+      return this.$_cancelPlan({}, success, error);
     };
 
     return UserModel;

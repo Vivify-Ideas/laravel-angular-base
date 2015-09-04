@@ -1,0 +1,27 @@
+<div class="inner-content">
+
+    <h1>Change Plan</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Plan</td>
+                <td>Price</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="plan in plans">
+                <td>{{ plan.name }}</td>
+                <td>{{ plan.amount | currency }}</td>
+                <td>
+                    <button ng-if="user.stripe_plan == plan.id" class="btn btn-success disabled">My current plan</button>
+                    <button ng-if="user.stripe_plan == plan.id && !plan.isFreePlan()" ladda="plan.busy" class="btn btn-danger" ng-click="cancelPlan(plan)">Cancel</button>
+                    <button ng-if="user.stripe_plan != plan.id" ladda="plan.busy" class="btn btn-warning" ng-click="switchPlan(plan)">Switch to this plan</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</div>
