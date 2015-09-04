@@ -35,6 +35,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', 'UsersController', ['only' => ['update']]);
     Route::put('users/{id}/password', 'UsersController@changePassword');
     Route::post('contacts/parse-from-csv', 'ContactsController@parseFromCsv');
+
+    Route::resource('users.cards', 'Billing\UserCardsController');
+
 });
 
 Route::resource('files', 'FilesController');

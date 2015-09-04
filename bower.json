@@ -29,6 +29,8 @@
     "ng-file-upload": "~7.0.17",
     "Jcrop": "~0.9.12",
     "angular-translate": "~2.7.2",
-    "angular-translate-loader-static-files": "~2.7.2"
+    "angular-translate-loader-static-files": "~2.7.2",
+    "angular-stripe": "~4.2.8",
+    "angular-credit-cards": "~2.3.4"
   }
 }

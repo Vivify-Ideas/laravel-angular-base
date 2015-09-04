@@ -37,8 +37,8 @@ _app.config(function($stateProvider, $urlRouterProvider) {
       url: '/reset-password/{token}',
       controller: 'ResetPasswordCtrl',
       templateUrl: 'auth/reset-password.html',
-      filter: 'guest'
-,      resolve: {
+      filter: 'guest',
+      resolve: {
         token: function ($stateParams) {
           return $stateParams.token;
         }
@@ -52,6 +52,17 @@ _app.config(function($stateProvider, $urlRouterProvider) {
       resolve: {
         user: function (activeUser) {
           return activeUser;
+        }
+      }
+    })
+    .state('billing', {
+      url: '/billing',
+      filter: 'authenticated',
+      controller: 'BillingCtrl',
+      templateUrl: 'billing.html',
+      resolve: {
+        card: function (CardModel, activeUser) {
+          return CardModel.get({id: 0, user_id: activeUser.id});
         }
       }
     });

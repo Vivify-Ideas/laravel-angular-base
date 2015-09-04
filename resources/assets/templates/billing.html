@@ -1,0 +1,91 @@
+<div>
+
+    <h1>Billing</h1>
+
+    <tabset>
+        <tab heading="Invoices">
+            <table class="table" table-control table-collection="tableData" table-default-sort="name">
+                <thead>
+                    <tr>
+                        <th table-sortable="name">Name</th>
+                        <th table-sortable="age">Age</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in tableData">
+                        <td>{{item.name}}</td>
+                        <td>{{item.age}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </tab>
+        <tab heading="Credit Card Info">
+            <div class="row">
+                
+                <form class="credit-card-form" name="paymentForm" ng-submit="save(cardInfo)" novalidate>
+                    <div class="inline">
+                        <div class="form-group has-feedback card-number" ng-class="paymentForm.cardNumber.$valid ? 'has-success' : cardInfo.number !== '' ? 'has-error' : ''">
+                            <label>Card Number</label><br>
+                            <div class="input-group">
+                                <input ng-model="cardInfo.number"
+                                       type="text"
+                                       class="form-control input-lg"
+                                       placeholder="Card Number"
+                                       name="cardNumber"
+                                       cc-number cc-format>
+                                <span  ng-class="paymentForm.cardNumber.$valid ? 'glyphicon-ok' : cardInfo.number !== '' ? 'glyphicon-remove' : ''" 
+                                       class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="paymentForm.cvc.$valid ? 'has-success' : cardInfo.cvc !== '' ? 'has-error' : ''">
+                            <label>CVC</label><br>
+                            <div class="input-group">
+                                <input ng-model="cardInfo.cvc"
+                                   type="text"
+                                   class="form-control input-lg"
+                                   maxlength="4"
+                                   placeholder="CVC"
+                                   cc-cvc
+                                   name="cvc" />
+                                <span  ng-class="paymentForm.cvc.$valid ? 'glyphicon-ok' : cardInfo.cvc !== '' ? 'glyphicon-remove' : ''" 
+                                       class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group inline expiration-date">
+                        <label>Expiration Date</label><br>
+                        <div class="input-group" ng-class="paymentForm.exp_month.$valid ? 'has-success' : cardInfo.exp_month !== '' ? 'has-error' : ''">
+                            <input ng-model="cardInfo.exp_month"
+                                   type="text"
+                                   class="form-control input-lg"
+                                   maxlength="2"
+                                   placeholder="MM"
+                                   name="exp_month"
+                                   cc-exp-month/>
+                            <span  ng-class="paymentForm.exp_month.$valid ? 'glyphicon-ok' :  cardInfo.exp_month !== '' ? 'glyphicon-remove' : ''" 
+                                   class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                        <div class="input-group" ng-class="paymentForm.exp_year.$valid ? 'has-success' : cardInfo.exp_year !== '' ? 'has-error' : ''">
+                            <input ng-model="cardInfo.exp_year"
+                                   type="text"
+                                   class="form-control input-lg"
+                                   maxlength="4"
+                                   placeholder="YYYY"
+                                   name="exp_year"
+                                   cc-exp-year full-year/>
+                            <span  ng-class="paymentForm.exp_year.$valid ? 'glyphicon-ok' : cardInfo.exp_year !== '' ? 'glyphicon-remove' : ''" 
+                                   class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div class="form-group" >
+                        <a ui-sref="billing" class="btn btn-lg btn-warning">Cancel</a>
+                        <button ng-show="paymentForm.$valid" class="btn  btn-lg btn-success" type="submit" ladda="busy">Update</button>
+                        <button ng-show="paymentForm.$invalid" class="btn  btn-lg btn-success" disabled>Update</button>
+                    </div>
+                </form>
+            </div>
+        </tab>
+    </tabset>
+
+</div>

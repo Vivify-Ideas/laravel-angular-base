@@ -24,7 +24,9 @@ var vendorScripts = [
   'bower_components/ng-file-upload/ng-file-upload.js',
   'bower_components/Jcrop/js/jquery.Jcrop.js',
   'bower_components/angular-translate/angular-translate.js',
-  'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js'
+  'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
+  'bower_components/angular-stripe/release/angular-stripe.js',
+  'bower_components/angular-credit-cards/release/angular-credit-cards.js'
 ];
 
 var appScripts = [
