@@ -1,1 +1,6 @@
-// use this file to define filters for your Angular project
+_app.filter('formatDate', function($filter){
+  return function(text, format){
+    var tempdate = new Date(text.replace(/-/g,"/"));
+    return $filter('date')(tempdate, format);
+  }
+});

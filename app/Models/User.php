@@ -73,6 +73,29 @@ class User extends BaseModel implements AuthenticatableContract, CanResetPasswor
         );
     }
 
+    public function getInvoices()
+    {
+        if (!$this->stripe_id) {
+            return [];
+        }
+
+        $invoices = Cache::remember($this->getCacheKeyStripeInvoices(), $this->getCacheExpiresAt(), function() {
+            return $this->invoices();
+        });
+
+        foreach ($invoices as $key => &$invoice) {
+            if (!$invoice->total) {
+                // don't show invoices with zero amount
+                unset($invoices[$key]);
+            }
+        }
+
+        return TransformerManager::transformDataToArray(
+            new InvoiceTransformer($this),
+            $invoices
+        );
+    }
+
     public function getStripeCustomer()
     {
         if (!$this->stripe_id) {

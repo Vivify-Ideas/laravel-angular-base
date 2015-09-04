@@ -33,7 +33,8 @@
                 password: '{{ action("Auth\PasswordController@postEmail") }}',
                 reset_password: '{{ action("Auth\PasswordController@postReset") }}',
                 contacts_parse_from_csv: '{{ action("ContactsController@parseFromCsv") }}',
-                cards: '/users/:user_id/cards/:id'
+                cards: '/users/:user_id/cards/:id',
+                invoices: '/users/:user_id/invoices/:id'
             };
 
             window._app_data = {};

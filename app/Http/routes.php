@@ -37,6 +37,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('contacts/parse-from-csv', 'ContactsController@parseFromCsv');
 
     Route::resource('users.cards', 'Billing\UserCardsController');
+    Route::resource('users.invoices', 'Billing\UserInvoicesController');
 
 });
 

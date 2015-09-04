@@ -4,20 +4,24 @@
 
     <tabset>
         <tab heading="Invoices">
-            <table class="table" table-control table-collection="tableData" table-default-sort="name">
-                <thead>
-                    <tr>
-                        <th table-sortable="name">Name</th>
-                        <th table-sortable="age">Age</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="item in tableData">
-                        <td>{{item.name}}</td>
-                        <td>{{item.age}}</td>
-                    </tr>
-                </tbody>
-            </table>
+           <table class="table billing-history" ng-if="invoices.length">
+              <tbody>
+                  <tr ng-repeat="invoice in invoices">
+                      <td>
+                          {{ invoice.description }}<br/>
+                          {{ invoice.created_at | formatDate: 'MM/dd/yyyy' }}
+                      </td>
+                      <td>
+                          {{ invoice.start_at | formatDate: 'MM/dd/yyyy' }} - {{ invoice.end_at | formatDate: 'MM/dd/yyyy' }}
+                      </td>
+                      <td>${{ invoice.amount }}</td>
+                      <td><a target="_blank" ng-href="{{ invoice.url }}" class="btn btn-xs btn-primary">View</a></td>
+                  </tr>
+              </tbody>
+          </table>
+
+          <p ng-if="!invoices.length">No invoices generated</p>
+          
         </tab>
         <tab heading="Credit Card Info">
             <div class="row">

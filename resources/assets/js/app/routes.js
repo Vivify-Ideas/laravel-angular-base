@@ -63,6 +63,9 @@ _app.config(function($stateProvider, $urlRouterProvider) {
       resolve: {
         card: function (CardModel, activeUser) {
           return CardModel.get({id: 0, user_id: activeUser.id});
+        },
+        invoices: function (InvoicesCollection, activeUser) {
+          return (new InvoicesCollection).query({user_id: activeUser.id});
         }
       }
     });

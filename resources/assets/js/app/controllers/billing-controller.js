@@ -1,8 +1,11 @@
-_app.controller('BillingCtrl', function($scope, card, stripe, $state, FlashMessagesService){
+_app.controller('BillingCtrl', function($scope, card, stripe, invoices, FlashMessagesService){
 
   $scope.card = card;
+  $scope.invoices = invoices;
+
   $scope.error = '';
   $scope.busy = false;
+
   $scope.cardInfo = {
     number: '',
     cvc: '',
@@ -19,7 +22,6 @@ _app.controller('BillingCtrl', function($scope, card, stripe, $state, FlashMessa
         $scope.card.token = token.id;
 
         $scope.card.save(function () {
-          // $state.go('billing');
           FlashMessagesService.success('Payment details successfully updated');
         }, function () {
           $scope.busy = false;
