@@ -36,11 +36,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('users/{id}/password', 'UsersController@changePassword');
     Route::post('contacts/parse-from-csv', 'ContactsController@parseFromCsv');
 
-    Route::resource('users.cards', 'Billing\UserCardsController');
-    Route::resource('users.invoices', 'Billing\UserInvoicesController');
-
     Route::put('users/{id}/plan', 'UsersController@changePlan');
     Route::put('users/{id}/plan/cancel', 'UsersController@cancelPlan');
+
+    Route::group(['middleware' => 'hasPlan'], function () {
+        Route::resource('users.cards', 'Billing\UserCardsController');
+        Route::resource('users.invoices', 'Billing\UserInvoicesController');
+    });
 
 });
 

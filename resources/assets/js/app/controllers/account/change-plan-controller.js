@@ -14,9 +14,9 @@ _app.controller('ChangePlanCtrl', function($scope, user, plans, card, dialogs, F
     };
 
     $scope.switchPlan = function (plan) {
-      if (!card.id && plan.price > 0) {
+      if (!card.id && plan.amount > 0) {
         window.StripeCheckout.open({
-          key:         window._mb_data.stripePublishableKey,
+          key:         window._app_data.stripePublishableKey,
           description: 'Monthly Subscription',
           panelLabel:  'Checkout',
           token:       function (token) {

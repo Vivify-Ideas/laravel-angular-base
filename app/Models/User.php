@@ -126,7 +126,7 @@ class User extends BaseModel implements AuthenticatableContract, CanResetPasswor
 
     public function removePlan()
     {
-        $this->stripe_plan = null;
+        $this->subscription()->cancel();
         $this->clearStripeCache();
         return $this->save();
     }
