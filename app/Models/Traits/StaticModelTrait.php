@@ -5,7 +5,6 @@ namespace App;
 trait StaticModelTrait 
 {
     protected static $arrayKeys;
-    protected static $items;
 
     public static function all()
     {

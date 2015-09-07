@@ -12,6 +12,7 @@ class Plan
 
     protected static $keyField = 'id';
     protected static $valueField = 'name';
+    protected static $items;
 
     public static function free()
     {

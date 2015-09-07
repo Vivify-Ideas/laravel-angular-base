@@ -45,6 +45,7 @@
             _app_data.activeUser = {!! $user ? $user : 'null' !!};
             _app_data.preferredLanguage = {"key" : "en-US", "strings" : <?php include(realpath(public_path('i18n/locale-en-US.json'))); ?> };
             _app_data.stripePublishableKey = '{{ config("services.stripe.key") }}';
+            _app_data.countries = {!! json_encode(App\Country::getList(), JSON_NUMERIC_CHECK) !!};
         </script>
 
         <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
