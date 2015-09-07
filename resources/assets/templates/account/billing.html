@@ -23,17 +23,38 @@
           <p ng-if="!invoices.length">No invoices generated</p>
           
         </tab>
-        <tab heading="Credit Card Info">
+        <tab heading="Credit Card Info" select="showChangeCCForm(false)">
+            <div ng-if="!shouldShowChangeCCForm">
+              
+              <h4>Current Credit Card</h4>
+              <div>
+                Credit Card number 
+                <div> <strong>**** **** **** {{card.last_four}}</strong> </div>
+              </div>                  
+
+              <div> 
+                Expiration 
+                <div> <strong>{{card.expiration}}</strong> </div>
+              </div>
+
+              <div>
+                Type 
+                <div> <strong>{{card.type}}</strong> </div>
+              </div>
+
+              <button class="btn btn-primary" ng-click="showChangeCCForm(true)">Change</button>
+
+            </div>
+
             <div class="row">
-                
-                <form class="credit-card-form" name="paymentForm" ng-submit="save(cardInfo)" novalidate>
+                <form class="credit-card-form" name="paymentForm" ng-submit="save(cardInfo)" novalidate ng-if="shouldShowChangeCCForm">
                     <div class="inline">
                         <div class="form-group has-feedback card-number" ng-class="paymentForm.cardNumber.$valid ? 'has-success' : cardInfo.number !== '' ? 'has-error' : ''">
                             <label>Card Number</label><br>
                             <div class="input-group">
                                 <input ng-model="cardInfo.number"
                                        type="text"
-                                       class="form-control input-lg"
+                                       class="form-control input"
                                        placeholder="Card Number"
                                        name="cardNumber"
                                        cc-number cc-format>
@@ -46,7 +67,7 @@
                             <div class="input-group">
                                 <input ng-model="cardInfo.cvc"
                                    type="text"
-                                   class="form-control input-lg"
+                                   class="form-control input"
                                    maxlength="4"
                                    placeholder="CVC"
                                    cc-cvc
@@ -62,7 +83,7 @@
                         <div class="input-group" ng-class="paymentForm.exp_month.$valid ? 'has-success' : cardInfo.exp_month !== '' ? 'has-error' : ''">
                             <input ng-model="cardInfo.exp_month"
                                    type="text"
-                                   class="form-control input-lg"
+                                   class="form-control input"
                                    maxlength="2"
                                    placeholder="MM"
                                    name="exp_month"
@@ -73,7 +94,7 @@
                         <div class="input-group" ng-class="paymentForm.exp_year.$valid ? 'has-success' : cardInfo.exp_year !== '' ? 'has-error' : ''">
                             <input ng-model="cardInfo.exp_year"
                                    type="text"
-                                   class="form-control input-lg"
+                                   class="form-control input"
                                    maxlength="4"
                                    placeholder="YYYY"
                                    name="exp_year"
@@ -83,9 +104,9 @@
                         </div>
                     </div>
                     <div class="form-group" >
-                        <a ui-sref="billing" class="btn btn-lg btn-warning">Cancel</a>
-                        <button ng-show="paymentForm.$valid" class="btn  btn-lg btn-success" type="submit" ladda="busy">Update</button>
-                        <button ng-show="paymentForm.$invalid" class="btn  btn-lg btn-success" disabled>Update</button>
+                        <a ui-sref="billing" class="btn btn-warning" ng-click="showChangeCCForm(false)">Cancel</a>
+                        <button ng-show="paymentForm.$valid" class="btn btn-success" type="submit" ladda="busy">Update</button>
+                        <button ng-show="paymentForm.$invalid" class="btn btn-success" disabled>Update</button>
                     </div>
                 </form>
             </div>

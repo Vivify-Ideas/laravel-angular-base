@@ -2,6 +2,10 @@
 
 namespace App;
 
+use App\Transformers\CardTransformer;
+use App\Transformers\InvoiceTransformer;
+use App\Transformers\TransformerManager;
+
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;

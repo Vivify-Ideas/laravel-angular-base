@@ -43,16 +43,17 @@ class UserInvoicesController extends Controller
         $user = Auth::user();
         $invoice = $user->findInvoiceOrFail($id);
 
-        // $pdf = App::make('dompdf.wrapper');
-        // $pdf->loadHTML($invoice->render([
-        //     'user' => $user,
-        //     'card' => $user->getCard(),
-        //     'invoiceTransformed' => TransformerManager::transformDataToArray(
-        //         new InvoiceTransformer($user),
-        //         $invoice,
-        //         'Item'
-        //     )
-        // ]));
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadHTML($invoice->render([
+            'user' => $user,
+            'card' => $user->getCard(),
+            'vendor' => $user->last_name,
+            'invoiceTransformed' => TransformerManager::transformDataToArray(
+                new InvoiceTransformer($user),
+                $invoice,
+                'Item'
+            )
+        ]));
 
         return $pdf->stream();
     }

@@ -13,7 +13,8 @@
         "laravel/framework": "5.1.*",
         "league/fractal": "^0.12.0",
         "intervention/image": "^2.3",
-        "laravel/cashier": "~5.0"
+        "laravel/cashier": "~5.0",
+        "barryvdh/laravel-dompdf": "0.6.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
