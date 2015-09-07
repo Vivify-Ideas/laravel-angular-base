@@ -25,19 +25,15 @@ footer {
     width: 100%;
     min-height: @footer-height;
 
-    > div {
-        max-width: 1170px;
-        margin: 0px auto;
-        .container-fluid {
-            .row {
-                padding-top: 1.4em;
-                > div {
-                    &:nth-child(2) {
-                        text-align: right;
-                    }
-                    @media (max-width: @screen-sm) {
-                        text-align: center !important;
-                    }
+    .container {
+        .row {
+            padding-top: 1.4em;
+            > div {
+                &:nth-child(2) {
+                    text-align: right;
+                }
+                @media (max-width: @screen-sm) {
+                    text-align: center !important;
                 }
             }
         }
