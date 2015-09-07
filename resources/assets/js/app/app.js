@@ -33,7 +33,7 @@ window._app = angular.module('LaravelAngularApp',[
     $translateProvider.preferredLanguage(_app_data.preferredLanguage.key);
     $translateProvider.useSanitizeValueStrategy('sanitize');
   }])
-  .run(function($rootScope, $state, activeUser, RouteFilterService){
+  .run(function($rootScope, $state, RouteFilterService){
     $rootScope.pageBusy = true;
     $rootScope.projectName = window._app_data.projectName;
     $rootScope.$on('$viewContentLoaded', function(event) {

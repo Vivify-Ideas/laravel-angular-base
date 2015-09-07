@@ -18,8 +18,8 @@
                     <li dropdown on-toggle="toggled(open)">
                         <a href dropdown-toggle>Account <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li ng-if="activeUser.id"><a ui-sref="billing">Billing</a></li>
-                            <li ng-if="activeUser.id"><a ui-sref="change-plan">Change Plan</a></li>
+                            <li ng-if="activeUser().id"><a ui-sref="billing">Billing</a></li>
+                            <li ng-if="activeUser().id"><a ui-sref="change-plan">Change Plan</a></li>
                             <li><a href="">Something else here</a></li>
                             <li role="separator" class="divider"></li>
                             <li class="dropdown-header">Nav header</li>
@@ -29,11 +29,11 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li ng-if="!activeUser.id"><a ui-sref="signup">{{ 'COMMON.SIGNUP' | translate }}</a></li>
-                    <li ng-if="!activeUser.id"><a ui-sref="login">Login</a></li>
-                    <li ng-if="activeUser.id"><a ui-sref="my-profile">My Profile</a></li>
-                    <li ng-if="activeUser.is_admin"><a href="/admin">Admin</a></li>
-                    <li ng-if="activeUser.id"><a href="" ng-click="logout()">Logout</a></li>
+                    <li ng-if="!activeUser().id"><a ui-sref="signup">{{ 'COMMON.SIGNUP' | translate }}</a></li>
+                    <li ng-if="!activeUser().id"><a ui-sref="login">Login</a></li>
+                    <li ng-if="activeUser().id"><a ui-sref="my-profile">My Profile</a></li>
+                    <li ng-if="activeUser().is_admin"><a href="/admin">Admin</a></li>
+                    <li ng-if="activeUser().id"><a href="" ng-click="logout()">Logout</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>

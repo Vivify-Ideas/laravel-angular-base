@@ -1,7 +1,10 @@
-_app.controller('HeaderCtrl', function ($scope, AuthService, activeUser, $translate) {
+_app.controller('HeaderCtrl', function ($scope, AuthService, $translate) {
 
   $scope.navbarCollapsed = true;
-  $scope.activeUser = activeUser;
+
+  $scope.activeUser = function() {
+    return AuthService.user;
+  };
 
   $scope.logout = function() {
     AuthService.logout();

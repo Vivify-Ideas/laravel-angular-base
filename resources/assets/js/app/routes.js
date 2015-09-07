@@ -50,8 +50,8 @@ _app.config(function($stateProvider, $urlRouterProvider) {
       controller: 'MyProfileCtrl',
       templateUrl: 'my-profile.html',
       resolve: {
-        user: function (activeUser) {
-          return activeUser;
+        user: function (AuthService) {
+          return AuthService.user;
         }
       }
     })
@@ -61,11 +61,11 @@ _app.config(function($stateProvider, $urlRouterProvider) {
       controller: 'BillingCtrl',
       templateUrl: 'account/billing.html',
       resolve: {
-        card: function (CardModel, activeUser) {
-          return CardModel.get({id: 0, user_id: activeUser.id});
+        card: function (CardModel, AuthService) {
+          return CardModel.get({id: 0, user_id: AuthService.user.id});
         },
-        invoices: function (InvoicesCollection, activeUser) {
-          return (new InvoicesCollection).query({user_id: activeUser.id});
+        invoices: function (InvoicesCollection, AuthService) {
+          return (new InvoicesCollection).query({user_id: AuthService.user.id});
         }
       }
     })
@@ -75,14 +75,14 @@ _app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: 'account/change-plan.html',
       controller: 'ChangePlanCtrl',
       resolve: {
-        user: function (activeUser) {
-          return activeUser;
+        user: function (AuthService) {
+          return AuthService.user;
         },
         plans: function (PlansCollection) {
           return (new PlansCollection).query();
         },
-        card: function (CardModel, activeUser) {
-          return CardModel.get({id: 0, user_id: activeUser.id});
+        card: function (CardModel, AuthService) {
+          return CardModel.get({id: 0, user_id: AuthService.user.id});
         }
       }
     })

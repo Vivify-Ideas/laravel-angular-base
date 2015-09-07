@@ -1,4 +1,4 @@
-_app.controller('SignupCtrl', function ($scope, AuthService, activeUser, UserModel) {
+_app.controller('SignupCtrl', function ($scope, AuthService) {
 
   $scope.credentials = {};
   $scope.errors = {};
