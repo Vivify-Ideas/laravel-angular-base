@@ -27,7 +27,7 @@ This project can be used as a starting point when developing Laravel 5 + Angular
     - ```chmod -R 777 bootstrap/cache```
 - Create database: ```mysqladmin -u root -p password YOUR PASSWORD create YOUR DATABASE NAME```
 - Create `.env` file from `.env.example`. Set there your mysql user, password and other needed information.
-- Add ```STRIPE_SECRET_KEY=your_secret_key_here``` to the ```.env``` file
+- Add ```STRIPE_SECRET_KEY=your_secret_key_here``` and ```STRIPE_PUBLISHABLE_KEY=your_publishable_key``` to the ```.env``` file
 - Run migrations: ```php artisan migrate```
 - Run seeder: ```php artisan db:seed --env=local```
 - Run NPM: ```npm install```

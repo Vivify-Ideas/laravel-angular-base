@@ -20,7 +20,6 @@ window._app = angular.module('LaravelAngularApp',[
   .config(['$httpProvider', 'laddaProvider', 'stripeProvider', function ($httpProvider, laddaProvider, stripeProvider) {
     $httpProvider.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
     $httpProvider.interceptors.push('ErrorHttpResponseInterceptor');
-    $httpProvider.defaults.headers.common["X-CSRF-TOKEN"] = window._app_data.csrfToken;
     laddaProvider.setOption({style: 'expand-left'});
     stripeProvider.setPublishableKey(window._app_data.stripePublishableKey);
   }])

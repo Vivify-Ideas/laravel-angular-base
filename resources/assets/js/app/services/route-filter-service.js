@@ -1,4 +1,4 @@
-_app.factory('RouteFilterService', function($rootScope, $state, AuthService) {
+_app.factory('RouteFilterService', function($rootScope, $state, AuthService, FlashMessagesService) {
     var goToState = function (state, event) {
       $rootScope.pageBusy = false;
       $state.go(state);
@@ -15,6 +15,7 @@ _app.factory('RouteFilterService', function($rootScope, $state, AuthService) {
         }
 
         if(!AuthService.user.stripe_plan && toState.name !== 'change-plan'){
+          FlashMessagesService.warning('Please select a plan first!');
           return goToState('change-plan', event);
         }
       }

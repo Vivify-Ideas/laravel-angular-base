@@ -6,7 +6,7 @@ use Exception;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Mail;
-use View;
+use Illuminate\Session\TokenMismatchException;
 
 class Handler extends ExceptionHandler
 {
@@ -53,6 +53,10 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
+        if($e instanceof TokenMismatchException) {
+            return response([], 401);
+        }
+
         $code = $this->_getStatusCode($e);
 
         if (!config('app.debug') && $code == 500) {

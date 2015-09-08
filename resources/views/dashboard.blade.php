@@ -41,7 +41,6 @@
             window._app_data = {};
 
             _app_data.projectName = 'Project Name';
-            _app_data.csrfToken = '{!! csrf_token() !!}';
             _app_data.activeUser = {!! $user ? $user : 'null' !!};
             _app_data.preferredLanguage = {"key" : "en-US", "strings" : <?php include(realpath(public_path('i18n/locale-en-US.json'))); ?> };
             _app_data.stripePublishableKey = '{{ config("services.stripe.key") }}';
