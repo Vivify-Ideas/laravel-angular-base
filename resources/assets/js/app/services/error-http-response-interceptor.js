@@ -5,6 +5,9 @@ _app.factory('ErrorHttpResponseInterceptor', function($q, $injector) {
         $injector.get('AuthService').clearUser();
         $injector.get('$state').go('login');
       }
+      if (rejection.status === 403) {
+        $injector.get('$window').location.reload(true);
+      }
 
       return $q.reject(rejection);
     }

@@ -54,7 +54,7 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $e)
     {
         if($e instanceof TokenMismatchException) {
-            return response([], 401);
+            return response('Invalid application status, please refresh', 403);
         }
 
         $code = $this->_getStatusCode($e);
