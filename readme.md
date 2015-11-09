@@ -31,6 +31,8 @@ This project can be used as a starting point when developing Laravel 5 + Angular
 - Run migrations: ```php artisan migrate```
 - Run seeder: ```php artisan db:seed --env=local```
 - Run NPM: ```npm install```
+- Run `php artisan key:generate`
+- Run `gulp`
 - Set appropriate email in ```app.error-log-emails``` for email error reporting
 - Set ```~/.composer/vendor/bin``` directory in your PATH so the envoy executable is found when you run the envoy command in your terminal
 
